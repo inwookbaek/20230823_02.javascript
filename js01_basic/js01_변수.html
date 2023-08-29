@@ -1,0 +1,143 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/changeBg.js"></script>
+    <script>
+        // 실습1. 이름과 나이, 성별을 입력(prompt)받아서 body태그에 출력하기
+        // name = prompt('이름을 입력하세요!');
+        // age = prompt('나이를 입력하세요!'); 
+        // gender = prompt('성별을 입력하세요!');
+        
+        // document.write('<h1>' + name + '</h1>');
+        // document.write('<h1>' + age);
+        // document.write('<h1>' + gender + '</h1>');
+        // document.write('<h1>' + prompt('이름을 입력하세요!') + '</h1>');
+    </script>
+    <script>
+        /*
+            A. JavaScript를 정의하는 방법
+
+                1. html파일의 script블럭에 정의한다.
+                    - script블럭은 html파일에 어디나 위치할 수 있다.
+                    - 하지만, 주의할 점은 html 처음부터 순차적으로 실행된다.
+                2. html의 js을 정의하는 방법
+                    - inline
+                    - internal
+                    - external
+            
+            B. JavaScript의 기본문법
+                1. JS는 실행문장 끝에 세미콜론(;)으로 끝내야 한다.
+                2. 변수의 선언방법
+                    - 변수란? 하나의 저장공간을 의미한다.
+                    - 선언하는 방법은 var, let, const 또는 선언하지 않는 방법
+                    - var은 제한없이 변수를 재선언 및 값을 변경가능
+                    - let은 이미 선언된 변수는 재선언할 수 없다. 값은 변경가능
+                    - const 기 선언된 변수는 재선언불가, 값변경불가
+                3. 변수명명규칙
+                    - 영어문자, 언더바(_), $, 숫자를 혼용해서 사용가능
+                    - 첫 글자는 반드시 영어문자, _, $로 시작하고 중간 숫자 사용 가능
+                    - JS에서 사용하는 예약어(if, let, for...)는 사용불가
+                    - 변수명은 소문자로 사용하는 것이 관례, 만약에 단어가 다르다면
+                      camel케이스(단어가 변경되는 문자를 대문자로), snake케이스를 준수하는 것이 관례
+                    - 스타일가이드 규칙에 의거 작성하는 것이 관례
+                        - 구글 JS 스타일 가이드 : google.github.io/styleguide/jsguide.html
+                        - 에어엔비 JS스타일 가이드 : github.com/airbnb/javascript
+                4. 문자열 선언은 작은/큰 따옴표 구분없이 사용가능
+                   - 큰 따옴표안에는 큰 따옴표, 작은 따옴표안에는 작은 따옴표 사용불가
+                   - 큰 따옴표안에는 작은 따옴표, 작은 따옴표안에는 큰 따옴표 사용가능
+                   - 큰 따옴표안에 or 작은 따옴표안에 각가 사용하려면 escape문자(\)를 사용
+                5. 자바스크립트는 대소문자를 구분
+                   - name, Name, NAME, nAMe등은 각각 다른 변수이다.
+                6. 벡틱(`)을 사용하여 문자열을 간단하게 표현할 수 있다.
+                   - 벡틱안에 ${변수}의 형태로 정의한다.
+                
+            C. 이스케이프문자(\)
+                1. \n : 줄바꿈   
+                2. \t : 탭
+                3. \' : 작은 따옴표
+                4. \" : 큰 따옴표
+                5. \\ : 역슬래쉬(\)문자            
+                
+            D. JavaScript 참고 사이트
+                1. https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference
+                2. w3schools
+        */
+    </script>
+
+    <script>
+        var a = "손흥민";
+        let b = '이강인';
+        const c = '김민재';
+        
+        a = "날강두";
+        b = '케인';  // 값 변경 가능
+        // let b = '베컴'; // 재선언 불가
+        // c = "메시"; const로 선언된 변수로 값 수정 불가
+
+        // let d = '이'강인';  // 선언불가
+        // let d = "이"강인"; // 선언불가
+        // let d = "이"강인"; // 선언불가
+        let d = "이\"강인";
+        let e = '이\'강인';
+        let f = '이"강인';
+        let g = "이'강인";
+
+        console.log(a, b, c, d, e, f, g);
+        console.log('내 이름은 a 입니다!');
+        console.log('내 이름은 ' + a + ' 입니다!');
+        console.log(`내 이름은 ${a} 입니다!`);
+
+    </script>
+
+    <script>
+        // 변수명명규칙
+        // let 1a = '값1'; // 숫자로 시작 불가
+        // let abc@d; // 특수문자 사용불가
+        // let var = 10; // 예약어 사용불가
+
+        let _a;
+        let $a;
+        let a1234b;
+
+        let helloWorld = '안녕하세요?'; // camel case
+        let hello_world = '안녕하세요?'; // snake case
+        let name = "손흥민";
+        let Name = "이강인";
+        let NAME = "김민재";
+        console.log(name, Name, NAME);
+    </script>
+
+
+</head>
+<body>
+    <h1 id="name">홍길동</h1>
+    <h3 class="age">100살</h3>
+
+    <script>
+        // 1. document.write : body태그안에 출력
+        // 2. 선택자
+        //    1) document.querySelector([id|class]) / querySelectorAll()
+        //    2) document.getElementById()
+        //    3) document.getElementsByClassName()
+        let h1 = document.querySelector('#name');
+        let h3 = document.querySelector('.age');
+        console.log(h1, h3, h1.innerHTML, h3.innerHTML);
+        h1.onclick = ex_bgChange();
+    </script>    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

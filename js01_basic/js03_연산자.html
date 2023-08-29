@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      연산자
+
+      1. 4칙연산 : +, -, /, *
+      2. 나머지 연산 : %
+    */
+    let a = 10 + 10;
+    console.log('더하기 = ', a, typeof a);
+
+    a = 10 - 5;
+    console.log('뺴  기 = ', a, typeof(a));
+
+    a = 10 * 5;
+    console.log('곱하기 = ', a, typeof(a));
+
+    a = 10 / 5;
+    console.log('나누기 = ', a, typeof(a));
+    
+    a = 10 % 3;
+    console.log('나머지 = ', a, typeof(a));
+    
+    let PI = 3.141592; // 불변의 값은 변수선언을 대문자로 하는 것이 관례
+    console.log('PI = ', PI, typeof(PI));
+    
+    // 자바스크립트등의 프로그램언어에서는 정밀한 계산을
+    // 할 때 실수연산은 정확하지가 않다.
+    let b = 0.1 + 0.2;
+    console.log('실수연산의 값은? ', b, typeof(b));
+    
+    // 실수의 연산은 정확하지가 않기 때문에 정수로 변환후 연산을 해야 한다.
+    b = ((0.1 * 10) + (0.2 * 10)) / 10; 
+    console.log('실수연산의 값은? ', b, typeof(b));
+    
+    // 문자와 숫자의 연산결과는? 
+    // 문자열과 숫자의 연산의 결과는 문자형, 즉, 문자열이 우선으로 적용된다.
+    // number타입이 string타입으로 형변환이 된 후에 문자열연결연산이 실행
+    // + : 문자열연결자
+    let str = '문자열';
+    let c = 10;
+    let result = str + 10;
+    console.log('문자열연산의 값은? ', result, typeof(result))
+    console.log('문자열연산의 값은? ', c + str)
+  </script>
+  <script>
+    // 실습1. 두사람의 나이를 입력받아서 전체나이를 출력하세요!
+    // 변수: hong, sonny, prompt()와 Number(), parseInt()이용
+    // "10" + "20" -> 1020
+    // 10 + 20 -> 30;
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

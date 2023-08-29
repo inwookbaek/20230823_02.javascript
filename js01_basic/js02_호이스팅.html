@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      호이스팅
+
+      ECMA2015(ECMA6)이전에는 변수를 선언할 때 var예약어를 사용했다.
+      변수에 var을 사용해서 선언하면 Hoistinf이라는 개념에 주의해야 한다.
+      호이스팅은 "끌어 올린다"라는 의미이다.
+
+      상황에 따라 변수의 선언부분을 "스코프의 가장 위쪽으로 끌어 올린다"
+      는 것이다. 실제로 코드 위로 끌어 올린다는 것이 아니라 자바스크립트
+      에서는 소스코드를 이런식을 해석한다는 의미이다.
+      
+      var과 다르게 let과 const를 사용할 경우에는 변수를 선언하기 전에
+      사용하면 에러가 발생하는데 에러가 발생하면 프로그래머가 유지보수
+      하는데 쉽게 확인할 수가 있지만 var사용할 경우엔 선언전에 변수를 
+      사용하면 결과값이 예상과는 다르게 나타나기 때문에 에러를 찾기가
+      어렵게 된다.
+
+      예약어  미선언          재선언   재할당
+      var       O(호이스팅)     O        O
+      let       X               X        O
+      const     X               X        X
+    */
+    var x = 10;
+    var sum = x + y;
+    var y  = 20;
+    console.log(sum);  // 실행이 됨, 다만, NaN으로 출력
+
+    let a = 10;
+    let tot = a + b;  // 에러발생
+    let b = 10;
+    console.log(tot); // 실행이 않됨
+  </script>
+</head>
+<body>
+  <script>
+    function add(a, b) {
+      var x = 10
+    }
+
+    function sub(a, b) {
+      var x = 20;
+    }
+  </script>
+</body>
+</html>

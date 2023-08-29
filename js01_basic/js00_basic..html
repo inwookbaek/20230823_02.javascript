@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="./js/changeBg.js"></script>
+</head>
+<body>
+    <h6>1. 인라인 JavaScript</h6>
+    <button onclick="alert('안녕하세요! 반갑습니다!')">여기를 클릭해 보세요!!</button>
+    <button onmouseover="alert('제 이름은 홍길동 입니다!')">마우스를 올려 보세요!!</button>
+
+    <h6>2. 내부 JavaScript</h6>
+    <button onclick="bgChange()">배경색변경하기(내부)</button>
+    <script>
+        function random(number) {
+            return Math.floor(Math.random() * 255);
+        }
+        
+        function bgChange() {
+            // 단축키
+            // ctrl + / : 주석처리
+            // alt + up(down) : 줄이동
+            // shift + alt + up(down) : 라인복사           
+            // alert('배경색을 새로 고침합니다!');
+            const sampleColor = 'rgb(' + random(255)+ ',' + random(255) + ',' +random(255)+ ')';
+            // document.body.style.backgroundColor = 'blue';
+            document.body.style.backgroundColor = sampleColor;
+        }        
+    </script>
+    
+    <h6>3. 외부 JavaScript</h6>
+    <button onclick="ex_bgChange()">배경색변경하기(외부)</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
