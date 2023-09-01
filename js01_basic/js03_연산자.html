@@ -11,7 +11,7 @@
       2. 나머지 연산 : %
     */
     let a = 10 + 10;
-    console.log('더하기 = ', a, typeof a);
+    console.log('더하기 = ', a, typeof (a));
 
     a = 10 - 5;
     console.log('뺴  기 = ', a, typeof(a));
@@ -53,9 +53,49 @@
     // "10" + "20" -> 1020
     // 10 + 20 -> 30;
 
+    // let hong_age = parseInt(prompt("홍길동의 나이를 입력하세요!"));
+    // let sonny_age = parseInt(prompt("손흥민의 나이를 입력하세요!"));
+    // console.log(typeof hong_age, typeof(sonny_age));
+    // // let tot_age = Number(hong_age) + parseInt(sonny_age);
+    // let tot_age = hong_age + sonny_age;
+    // console.log(`두 사람의 합계나이는 ${tot_age}살입니다`)
+
+    // document.write(`<h3>홍길동의 나이는 ${hong_age}살 입니다</h3>`)
+    // document.write(`<h3>손흥미의 나이는 ${sonny_age}살 입니다</h3>`)
+
+    let name1 = prompt("이름을 입력하세요!");
+    let age1 = parseInt(prompt(`${name1}의 나이를 입력하세요!`));
+    let name2 = prompt("이름을 입력하세요!");
+    let age2 = parseInt(prompt(`${name2}의 나이를 입력하세요!`));
+
+    document.write(`<h3>${name1}의 나이는 ${age1}살 입니다</h3>`)  
+    document.write(`<h3>${name2}의 나이는 ${age2}살 입니다</h3>`)  
   </script>
 </head>
 <body>
-  
+
+  <!-- 실습2. querySelector, innerHTML 이용해서 아래와 같이 출력해 보세요
+    <h3 id="person1">name1</h3>
+    <h3 class="person2">name2</h3>
+    <h3 id="total">name1과 name2 두 사람 사람 나이의 합계는 age+age2살 입니다.</h3>
+  -->
+  <hr>
+  <h3 id="person1"></h3>
+  <h3 class="person2"></h3>
+  <h3 id="total"></h3>  
+
+  <script>
+    let person1 = document.querySelector('#person1');
+    let person2 = document.querySelector('.person2');
+    let total_age = document.querySelector('#total');
+
+    console.log(typeof person1, person1);
+    person1.innerHTML = `${name1}의 나이는 ${age1}살 입니다`;
+    person2.innerHTML = `${name2}의 나이는 ${age2}살 입니다`;
+    total_age.innerHTML = `두 사람의 나이의 합은 ${age1 + age2}살 입니다`;
+
+    person1.style.color = "red";
+  </script>
+</body>
 </body>
 </html>

@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /* 2. while 
+
+      초기식
+      while(조건식) {
+        실행문장...
+        증가식
+      }
+    */
+    let sum = 0;
+    let i = 1;
+    while(i<=10) {
+      sum += i;
+      i++;
+    }
+    document.write(`<h3>while : 1 ~ 10까지의 합은 ${sum}입니다!</h3>`)
+    </script>
+
+<script>
+  /* 3. do while 
+  
+  초기식
+  do {
+    실행할 문장
+    증가식
+  } while(조건식)
+  */
+    sum = 0;
+    i = 1;
+    do {
+      sum += i;
+      i++;
+    } while(i<=10)
+    document.write(`<h3>do while : 1 ~ 10까지의 합은 ${sum}입니다!</h3>`) 
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

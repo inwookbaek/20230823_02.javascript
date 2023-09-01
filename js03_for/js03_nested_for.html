@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /* 중첩 for문 
+      for() {
+        for() {
+          for() {
+          }
+        }
+        for() {
+        }
+      }
+    */
+    for(i=1;i<=2;i++) {
+      document.write(`바깥쪽 for : ${i}<br>`)
+      for(j=1;j<=3;j++) {
+        document.write(`-----> 안쪽 for : ${j}<br>`)
+      }
+    }
+    document.write('<hr>')
+  </script>
+  <script>
+    /* 실습1. 구구단(for문 1개만)
+      단을 입력받아서 해당 단을 출력하기
+      9단을 입력받았다면
+      9 x 1 = 9
+      ...
+      9 x 9 = 81;
+    */
+    let dan = parseInt(prompt('단을 입력하세요~', 9));
+    document.write(`=== ${dan} 단 ===<br>`)
+    for(i=1;i<=9;i++) {
+      document.write(`${dan} x ${i} = ${dan * i}<br>`)
+    }
+    document.write('<hr>')
+    /* 실습 2. 구구단(2~9)전체를 출력(세로)하기 
+      중첩for문사용
+      for(단) {
+        for(1~9)
+      }
+      === 2 단 ===
+      2 x 1 = 2
+      ...
+      === 9 단 ===
+      9 x 9 = 81
+    */
+    for(dan=2;dan<10;dan++) {
+      document.write(`=== ${dan} 단 ===<br>`)
+      for(i=1;i<=9;i++) {
+        document.write(`${dan} x ${i} = ${dan * i}<br>`)
+      }
+    }
+    document.write('<hr>')
+
+    /* 실습 23 구구단(2~9)전체를 출력(가로)하기
+    
+      == 2단 ==  ...........  == 9단 ==
+      2 x 1 = 2               9 x 1 = 9
+      ....
+      2 x 9 = 19              9 x 9 = 81
+
+      (hint)
+      for(증가) {
+        for(단)
+          '2 x 1 = 2 + ...  9 x 1 = 9' 형태로 문자열 연결해서 만들기
+        }
+          2 x 1 = 2 + ...  9 x 1 = 9
+      }
+    */ 
+    document.write('= 2단 = = 3단 = = 4단 = = 5단 = = 6단 = = 7단 = = 8단 = = 9단 = <br>'); 
+      
+    
+  </script>
+</head>
+<body>
+
+</body>
+</html>

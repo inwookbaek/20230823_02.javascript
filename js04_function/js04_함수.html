@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1. 즉시실행함수(전제가 익명함수)
+    // 한번만 사용함수일 경우 즉시실행함수 선언한다.
+    (function() { 
+      document.write('홍길동님, 환영합니다!');
+      // let username = prompt('이름을 입력하세요~', '홍길동');
+      // alert(`${username}님, 환영합니다!`);
+    })();
+  </script>
+  <script>
+    // 2. 화살표함수
+    // 1) 매개변수없고, 실행문장이 하나일 경우 
+    let hello = function() {
+      return '안녕하세요!<br>'
+    }
+    document.write(hello());
+
+    hello = () => { return '반갑습니다<br>'; }
+    document.write(hello());
+    
+    // return문장 하나만 있다면 생략 및 중괄호블럭 생략가능
+    // 매개변수가 없으면 소괄호는 생략불가
+    hello = () => '화살표함수<br>'; 
+    document.write(hello());
+
+    // 매개변수가 1개가 있을 경우 - 매개변수선언시 소괄호 생략가능
+    let a = name => name + '님 반갑습니다.<br>';
+    document.write(a('홍길동'));
+
+    // 매개변수가 2개이상 있을 경우
+    // function(a,b) { return a+b; }
+    let add = (x,y) => x+y;
+    document.write('20 + 10 = ' + add(20, 10) + '<hr>');
+  </script> 
+
+</head>
+
+<body>
+  <button id="btn">여기를 클릭해 보세요!!</button>
+
+  <script>
+    // 3. 콜백함수 - 다른 함수의 인자로 사용되는 함수
+
+    function fn_CallBack() {
+      document.write('홍길동님 어서오세요. 환영합니다!!<br>');
+    }
+
+    const btn = document.getElementById('btn'); // button요소를 가져옴
+
+    // 특정의 행위가 발생했을 떄 처리하는 함수 addEventListener(이벤트, 콜백함수)
+    // 매개변수 전달되는 콜백함수는 소괄호가 없다. 즉 호출형태로 하는 것이 아니다.
+    // btn.addEventListener('click', fn_CallBack);
+
+    // 콜백함수를 화살표함수로 선언하기
+    // 함수안에서 직접 콜백함수를 작성하고 실행하는 방법
+    btn.addEventListener('click', () => {
+     alert('콜백함수를 화살표함수로 정의 \n 홍길동님 어서오세요. 환영합니다!!<br>');
+    });
+  </script>
+
+  <hr>
+  <button onclick="alert('<인라인함수 호출하기!!!')">인라인함수호출</button><br>
+  <button onclick="fn_CallBack()">선언함수호출</button><br>
+
+</body>
+</html>

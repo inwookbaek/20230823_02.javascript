@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      1. 형변환함수 : Number(), String(), Boolean()
+      2. 숫자형문자를 숫자로 형변환 : parseInt(), parseFloat()
+    */
+
+    // 1. Number(문자열)
+    let age = prompt('나이를 입력하세요!', 18);
+    console.log(age, typeof age);
+    console.log(`${age + 1}`);
+    
+    console.log('-------------');
+    Number(age);  // 숫자로 변환만 실행
+    console.log(age, typeof age);
+    console.log(`${age = age + 1}`);
+    
+    age = Number(age); // 숫자로 변환한 후에 그 결과를 다시 age에 대입
+    console.log(age, typeof age);
+    console.log(`${age = age + 1}`);
+    
+    console.log('-------------');
+    let num = '100';
+    console.log(`${Number(num) + 1}`);
+    
+    num = '100회차';
+    console.log(`Number : ${Number(num) + 1}`);     // NaN
+    console.log(`parseInt : ${parseInt(num) + 1}`); // 101
+    
+    console.log('-------------');
+    let 논리값 = true;
+    console.log(typeof 논리값, 논리값);
+    논리값 = Number(논리값);
+    console.log(typeof 논리값, 논리값);
+
+    // 2. String()
+    // Number, Boolean등의 값을 문자열로 변환함수
+    console.log('-------------');
+    num = 100;
+    num = String(num);
+    console.log(typeof num);
+    console.log(num++, ++num); // 자동형변환
+    console.log(typeof num);
+    
+    console.log('-------------');
+    let a = true;
+    console.log(typeof a, a);
+    a = String(a);
+    console.log(typeof a, a);
+    
+    // 3. Boolean(숫자)
+    // 숫자일 경우에 0은 false, 0을 제외한 모든 숫자는 true로 변환된다.
+    console.log('-------------');
+    let b = 0;
+    console.log(typeof b, b);
+    b = Boolean(b);
+    console.log(typeof b, b);
+    
+    b = Boolean(100);
+    console.log(typeof b, b);
+    
+    // Boolean(문자열)
+    // 문자일 경우에 공란은 false, 공란을 제외한 모든 문자열은 true
+    console.log('-------------');
+    b = Boolean('문자열');
+    console.log(typeof b, b);
+    b = Boolean('');
+    console.log(typeof b, b);
+    b = Boolean(undefined);
+    console.log(typeof b, b);
+    b = Boolean(null);
+    console.log(typeof b, b);
+    
+    // 4. parseFloat
+    console.log('-------------');
+    let test1 = '10.12345';
+    test1 = parseFloat(test1);
+    console.log(typeof test1, test1);
+    test1 = parseInt(test1);
+    console.log(typeof test1, test1);
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

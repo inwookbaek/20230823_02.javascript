@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      함수(function)
+
+      함수의 선언은 'function'키워드로 선언하며 함수의 매개변수는 소괄호()로 묶고
+      쉼표로 구분한다. 함수의 실행문은 중괄호{} 블럭안에 실행할 문장들을 정의한다.
+
+      함수는 함수표현식(fuction expression)으로 만들수 있는데 이 함수를 익명함수
+      라고 한다. 즉, const sqare = function(num) { return num * num; } 형태로 선언
+      되는 함수를 말한다.
+
+      함수는 정의만 해서는 사용할 수 없고 함수를 호출를 해야 사용할 수 있다. 
+      함수의 호출 `변수명() 또는 함수명()`형태로 호출한다. 또한, 함수는 반환값이
+      있는 경우와 없는 경우가 있다. 즉, return문이 있고 없고의 차이이다.
+      return문이 없는 함수를 호출한 결과는 'undefined'이고 있는 함수는 처리한 
+      결과값이 반환된다.
+
+      함수를 호출할 경우에는 그 함수가 정의 된 블럭 즉, 스코프(범위)안에 있어야
+      한다. 만약, 스코프안에 없을 경우에 변수와 같이 호이스팅이 될 수 있다. 
+    */
+
+    // console.log(square);      // square는 초기값을 undefined를 가지고 호이스팅된다.
+    // console.log(`${square(5)}`) // TypeError가 발생 이 시점에서 square라는 함수가 아니다.
+
+    const square = function (num) {
+      return num * num;
+    }
+
+    console.log(`${square(5)}`) 
+    console.log(square);
+    
+    // 주의할 점
+    let name = prompt('이름을 입력하세요!!');
+    console.log(square, name);
+    
+    let pmt = prompt; // prompt함수를 pmt변수에 저장
+    let sqr = square; // square함수를 sqr변수에 저장
+    console.log('prompt함수 = ', pmt);
+    console.log('square함수 = ', sqr);
+
+    console.log('prompt는 함수일까요?', typeof prompt); // function
+    prompt = '함수일까요? 아니면 무엇일 까요?';
+    console.log('prompt는 함수일까요?', typeof prompt); // string
+    
+    // prompt('adkdkdkdkd', 1111); // 현 시점에서는 함수가 아니라 string 에러
+    prompt = pmt;
+    console.log('prompt는 함수일까요?', typeof prompt); // function
+    prompt('나이를 입력하세요...', 25);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

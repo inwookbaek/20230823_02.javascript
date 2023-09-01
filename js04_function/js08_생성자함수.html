@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      생성자함수(constructor) 
+
+      1. new 연산자로 객체를 생성할 수 있는 함수
+      2. 생성자함수명은 첫 글자는 대문자로 시작하고 카멜케이스를 준수하는 것이 관례
+      3. 일반함수와 생성자함수를 구분하는 방법은 return문의 유무로 구분한다.
+         즉, return문이 없고 대문자로 시작하면 생성자함수로 정의한다.
+    */
+    function Student() {} // 생성자함수
+    function student() {} // 일반함수
+
+    let std1 = new Student();
+    let std2 = new student();
+    let std3 = Student();
+
+    document.write(`std1의 type = ${typeof std1}<br>`);
+    document.write(`std2의 type = ${typeof std2}<br>`);
+    document.write(`std3의 type = ${typeof std3}<hr>`);
+
+    // 객체가 객체리터럴({})로 생성되었는지 new객체생성연산자로 만들었는지 확인은
+    // new.target으로 확인 가능
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new.target 참조
+
+    // 생성자함수 - EC6이전
+    function Student(name, kor, eng, mat) {
+      this.name = name;
+      this.kor = kor;
+      this.eng = eng;
+      this.mat = mat;
+
+      // this.getSum = () => this.kor + this.eng + this.mat;
+      // this.getAvg = () => this.getSum() / 3;
+    }
+
+    // 객체의 공통영역(Prototype)
+    // JavaScript에서 모든 객체는 공통역역인 prototype영역이 있다.
+    // 공통영역을 정의하는 방법은
+    // 1. 속성         : 생성자함수.prototype.속성명명 = 값 
+    // 2. 메서드(함수) : 생성자함수.prototype.메서드명(대표적인 toString());
+
+    Student.prototype.nation = '대한민국';
+    Student.prototype.getSum = function() { return this.kor + this.eng + this.mat };
+    Student.prototype.getAvg = function() { return this.getSum() / 3 };
+    Student.prototype.toString = function() { return `나의 이름은 ${this.name} 입니다. 평균은 ${this.getAvg().toFixed(2)}점 입니다}`}
+
+    let hong = new Student('홍길동', 100, 88, 99);
+    let lee = new Student('이강인', 92, 89, 87);
+    let sonny = new Student('손흥민', 90, 88, 77);
+
+    document.write(`${hong.name}의 국적은 ${hong.nation}, 총점은 ${hong.getSum()}, 평균은 ${hong.getAvg().toFixed(2)}<br>`)
+    document.write(`${lee.name}의 총점은 ${lee.getSum()}, 평균은 ${lee.getAvg().toFixed(2)}<br>`)
+    document.write(`${sonny.name}의 총점은 ${sonny.getSum()}, 평균은 ${sonny.getAvg().toFixed(2)}<hr>`)
+
+
+    // 생성자함수 - EC6이후
+    class Person {
+      constructor(name, kor, eng, mat) {
+        this.name = name;
+        this.kor = kor;
+        this.mat = mat;
+        this.eng = eng;
+      }
+      getSum() {
+        return this.kor + this.eng + this.mat 
+      }
+
+      getAvg() {
+        return this.getSum() / 3 
+      }
+    }
+
+    let park = new Person('박혁거세', 90, 80, 88);
+    console.log(park.getAvg());
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

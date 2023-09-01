@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      switch조건문
+
+      switch(조건식) {
+        case 결과1 or 조건식: 
+          조건에 맞는 실행할 문장
+          break;
+        ...
+        case 결과n or 조건식:
+          조건에 맞는 실행할 문장
+          break
+        default:
+          상기결과이외에 실행할 문장
+          break(정의해도 되는데 의미가 없기 때문에 생략)
+      }
+    */
+    let num = prompt('임의의 숫자를 입력하세요!');
+    switch(Number(num) % 2) {
+      case 0:
+        document.write(`입력된 숫자(${num})은 짝수입니다!<br>`)
+        break;
+      case 1:
+        document.write(`입력된 숫자(${num})은 홀수입니다!<br>`) 
+        break;
+      default:
+        document.write(`입력된 자료(${num})는 숫자가 아닙니다!<br>`) 
+    }
+  </script>
+  <script>
+    /* 실습1. switch문읋 작성하기
+      95이상이면 'A+학점입니다.' 90이상이면 'A 학점입니다' ~~ 'F학점입니다!'
+      switch(true) {
+        case score >= 95:
+        default:
+      }
+    */
+    let score = parseInt(prompt('학생점수를 입력하세요!!', 85));
+    switch(true) {
+      case score >= 95:
+        document.write(`<h3>학생점수(${score})는 A+ 학점입니다!</h3>`);
+        break;
+      case score >= 90:
+        document.write(`<h3>학생점수(${score})는 A 학점입니다!</h3>`);
+        break;
+      case score >= 85:
+        document.write(`<h3>학생점수(${score})는 B+ 학점입니다!</h3>`);
+        break;
+      case score >= 80:
+        document.write(`<h3>학생점수(${score})는 B 학점입니다!</h3>`);
+        break;
+      case score >= 70:
+        document.write(`<h3>학생점수(${score})는 C 학점입니다!</h3>`);
+        break;
+      case score >= 60:
+        document.write(`<h3>학생점수(${score})는 D 학점입니다!</h3>`);
+        break;     
+      default:
+        document.write(`<h3>학생점수(${score})는 F 학점입니다!</h3>`);
+      }   
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      복합연산자
+
+      1. += : a += 1 -> a = a + 1;
+      2. -= : a = a - 1;
+      3. *= : a = a * 1;
+      4. /= : a = a / 1;
+      5. %= : a = a % 1;
+
+    */
+
+    let a; // 변수선언
+    a = 10; // 초기화
+
+    let b = 10; // 선언과 동시에 초기화
+    b += 10; // b = b + 10;
+    console.log(`+= 연산결과: ${b}`)
+    
+    b -= 5; // b = b - 5;
+    console.log(`-= 연산결과: ${b}`)
+
+    b *= 5;
+    console.log(`*= 연산결과: ${b}`)
+
+    b /= 5;
+    console.log(`/= 연산결과: ${b}`)
+
+    b %= 4;
+    console.log(`%= 연산결과: ${b}`)
+
+    let list = '';
+    list = list + '<ul>'
+    list = list + '  <li>HTML5</li>'
+    list = list + '  <li>CSS3</li>'
+    list = list + '  <li>JavaScript</li>'
+    list = list + '</ul>';
+    document.write(list);
+
+    // 블럭선택단축키 : shift + alt + 마우스드래그
+    let list1 = '';
+    list1 += '<ul>'
+    list1 += '  <li>HTML5</li>'
+    list1 += '  <li>CSS3</li>'
+    list1 += '  <li>JavaScript</li>'
+    list1 += '</ul>';
+    document.write(list1);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

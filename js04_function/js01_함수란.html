@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      함수(fnction)란?
+
+      1. 함수는 기본적으로 호출한 곳으로 처리 결과를 전달해 주는 기능을 한다.
+      2. 함수의 호출은 `함수명() or 변수명()`의 형태로 호출한다.
+      3. 함수를 호출할 때 소괄호안에는 임의 값을 전달하는 매개변수(매개값, 인자, 인수...)가
+          있을 수도 있고 없을 수도 있다.
+      4. 사용자함수의 정의방법
+        1) 익명함수 : 이름이 없는 함수 : function(){}의 형태로 호출하려면 변수에 저장후 호출
+        2) 선언함수 : 이름이 있는 함수 : function 함수명() {} 형태, 호출 시 함수명()로 호출
+      5. 내장함수와 사용자함수
+        1) 내장함수 : JavaScript에서 기본적으로 제공해 주는 함수, 예) alert, prompt, confirm..
+        2) 사용자(정의)함수
+          a. 익명함수
+          b. 선언(일반)함수
+    */
+    // 1. 익명함수
+    let fn_01 = function() {
+          // 실행할 문장
+          // return '반환할 결과값';
+        }
+    
+    // 익명함수의 호출 즉, 변수명()형태로 호출
+    let result = fn_01();
+    document.write(result + '<hr>');
+
+    // 실습1. 매개변수로 단을 전달 받아서 해당 단을 출력하기
+    // fn_dan(9) -> 9단이 출력
+    // let xxx = function(dan) {
+    function fn_dan(dan) {
+      document.write(`=== ${dan} 단 ===<br>`)
+      for(i=1;i<=9;i++) {
+        document.write(`${dan} x ${i} = ${dan * i}<br>`)
+      }
+    }
+    fn_dan(5);
+    document.write(`<hr>`)
+
+    // 실습2. 구구단을 가로로 출결하는 익명함수를 작성해서 결과를 body출력하기
+    // fn_gugudan() { 가로로 출력하는 로직... doc..... }
+    // document.write(result)
+    function fn_gugudan() {
+      let output = ''
+      for(dan=2;dan<=9;dan++) {
+        output += `== ${dan}단 ==\t`;
+      }
+      document.write(output);
+      
+      for(i=1;i<=9;i++) {
+        output = '';
+        for(dan=2;dan<=9;dan++) {
+          output += `${dan} x ${i} = ${dan * i}\t\t`
+        }
+        document.write('<br>' + output);
+      }
+
+    }
+    fn_gugudan();
+    document.write(`<hr>`)
+
+    // 함수의 자료형은?
+    document.write(typeof fn_gugudan)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

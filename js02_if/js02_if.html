@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      중첩if문
+
+      if(조건식) {
+        if(조건식) {
+        }
+      } else {
+        if(조건식) {
+        }
+      }
+
+      실습1. 중첩if문을 이용해서 body출력
+      1) 현재시간을 입력받아서 12이전일 경우 '오전입니다.' 아니면 '오후입니다'
+      2) 오전일경우 9시이전일경우 '아침밥을 먹습니다.' 이후일 경우 '출근을 합니다'
+      3) 오후일 경우 18시이전일경우 '일을 합니다' 아니면 '퇴근을 합니다.'
+    */
+    let currTime = prompt('현재시간을 입력하세요!', 11);
+    if(currTime<=12) {
+      document.write(`<h3>현재시간은 ${currTime} 이고 오전입니다!</h3>`)
+      if(currTime<=9) {
+        document.write(`<h3>아침밥을 먹습니다!!</h3>`)
+      } else {
+        document.write(`<h3>출근을 합니다!</h3><hr>`)
+      }
+    } else {
+      document.write(`<h3>현재시간은 ${currTime} 이고 오후입니다!</h3>`)
+      if(currTime<=18) {
+        document.write(`<h3>일을 합니다!!</h3>`)
+      } else {
+        document.write(`<h3>퇴근을 합니다!</h3><hr>`)
+      }      
+    }
+  </script>
+  <script>
+    /* if() {} else if() {} else {}
+       상기의 중첩 if문을 if else if~ 문으로 변경하기!!
+    */
+
+    if(currTime<=9) {
+      document.write(`<h3>현재시간은 ${currTime} 이고 오전입니다!</h3>`)
+      document.write(`<h3>아침밥을 먹습니다!!</h3>`);
+    } else if(currTime <= 12) {
+      document.write(`<h3>현재시간은 ${currTime} 이고 오전입니다!</h3>`)
+      document.write(`<h3>출근을 합니다!</h3><hr>`)
+    } else if(currTime<=18) {
+      document.write(`<h3>현재시간은 ${currTime} 이고 오후입니다!</h3>`)
+      document.write(`<h3>일을 합니다!!</h3>`)
+    } else {
+      document.write(`<h3>현재시간은 ${currTime} 이고 오후입니다!</h3>`)
+      document.write(`<h3>퇴근을 합니다!</h3><hr>`)
+    }
+  </script>
+  <script>
+    /* 실습2. if else if : 점수(score)를 입력받아서
+      95이상이면 'A+학점입니다.' 90이상이면 'A 학점입니다' ~~ 'F학점입니다!'
+      h3태그로 출력하기
+    */  
+    let score = parseInt(prompt('학생점수를 입력하세요!!', 85));
+    if(score>=95) {
+      document.write(`<h3>학생점수(${score})는 A+ 학점입니다!</h3>`);
+    } else if(score>=90) {
+      document.write(`<h3>학생점수(${score})는 A 학점입니다!</h3>`);
+    } else if(score>=85) {
+      document.write(`<h3>학생점수(${score})는 B+ 학점입니다!</h3>`);
+    } else if(score>=80) {
+      document.write(`<h3>학생점수(${score})는 B 학점입니다!</h3>`);
+    } else if(score>=75) {
+      document.write(`<h3>학생점수(${score})는 C+ 학점입니다!</h3>`);
+    } else if(score>=70) {
+      document.write(`<h3>학생점수(${score})는 C 학점입니다!</h3>`);
+    } else if(score>=60) {
+      document.write(`<h3>학생점수(${score})는 D 학점입니다!</h3>`);
+    } else {
+      document.write(`<h3>학생점수(${score})는 F 학점입니다!</h3>`);
+    }
+  </script>
+  <script>
+    /* 실습3. 임의 숫자를 입력받아서 해당 숫자가 짝수인지 홀수인지를 출력하기
+      - 숫자가 입력되지 않았다면 경고창(숫자가 입력되지 않았습니다!
+        숫자를 입력하세요!!)을 띄우기
+    */
+    let num = prompt('임의의 숫자를 입력하세요!');
+    // alert(num, typeof num);
+    if(num === '') {
+      alert('숫자가 입력되지 않았습니다! 임의 숫자를 입력하세요!!')
+    } else {
+      if(Number(num) % 2 === 0) 
+        document.write(`입력된 숫자(${num})은 짝수입니다!`)
+      else 
+        document.write(`입력된 숫자(${num})은 홀수입니다!<hr>`)
+    }
+  </script>
+  <script>
+    /* 삼항연산자 
+      (조건식) ? true실행문장 : false실행문장
+    */
+    (Number(num) % 2 === 0) 
+      ? document.write(`입력된 숫자(${num})은 짝수입니다!`) 
+      : document.write(`입력된 숫자(${num})은 홀수입니다!`);
+  </script>
+</head>
+<body>
+  <!-- <h3> -->
+</body>
+</html>

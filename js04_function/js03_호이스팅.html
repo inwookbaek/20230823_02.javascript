@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1. 선언함수
+    // function 함수() { document.write('<h3>1st 함수 호출</h3>'); }
+    // function 함수() { document.write('<h3>2nd 함수 호출</h3>'); }
+    // 함수(); // 2nd
+    
+    // 2. 익명함수
+    // var 함수 = function () { document.write('<h3>1st 함수 호출</h3>'); }
+    // var 함수 = function () { document.write('<h3>2nd 함수 호출</h3>'); }
+    // 함수(); // 2nd
+
+    // 3. 익명함수 - 호이스팅
+    // 함수(); // 에러
+    // var 함수 = function () { document.write('<h3>1st 함수 호출</h3>'); }
+    // var 함수 = function () { document.write('<h3>2nd 함수 호출</h3>'); }
+
+    // 4. 선언함수 - 호이스팅
+    함수(); // 2nd
+    function 함수() { document.write('<h3>1st 함수 호출</h3>'); }
+    function 함수() { document.write('<h3>2nd 함수 호출</h3>'); }
+    document.write('<hr>')
+  </script>
+
+  <script>
+    // 1. function블럭안에서 var로 변수 선언
+    // function sum() { 
+    //   var result = '안녕하세요?'; 
+    // }
+    // document.write(result); // 접근불가 에러 not defined
+
+    // 2. 외부에 var로 변수 선언
+    var result = '안녕하세요?';
+    function sum() { 
+      // result = "반갑습니다!"; // 주석을 번갈아 가면서 테스트 해보세요
+      var result = "반갑습니다!";
+
+      document.write(result); // 접근가능, result 전역변수
+    }
+    sum();
+    document.write('<hr>');
+    document.write(result); 
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      자바스립트에서는 객체를 만드는 방법이 객체리터럴({}), new 객체생성연산자(생성자함수),
+      Object(), Object.create() 4가지 방법이 있다. 그 중에 보통의 경우 객체리터럴과 생성자함수로
+      객체를 생성한다.
+
+      객체리터럴과 생성자함수는 기술적으로 차이는 없지만 생성자함수명은 대문자로 시작하는 것이
+      관례이고 new 라는 객체 생성연산자로만 생서할 수 있다.
+    */
+
+    let hong1 = {
+      name: '홍길동',
+      age: 1000
+    }
+
+    let hong2 = {
+      name: '홍길순',
+      age: 900,
+      sayHello: function() {
+        console.log(`내 이름은 ${this.name}입니다!`)
+      }
+    }
+    
+    // 생성자함수 : EC6이전, 이후 class로 객체를 생성
+    function Hong(name, age) {
+      this.name = name;
+      this.age = age;
+      this.sayHello = function() {
+        console.log(`내 이름은 ${this.name}입니다!`);
+      }
+    }
+
+    let hong3 = new Hong('홍길자', 850);
+    let hong4 = new Hong('홍길성', 800);
+    let hong5 = new Hong('홍길녀', 750);
+
+    console.log(hong3.name, hong3.age, hong3.sayHello());
+    console.log(hong4.name, hong4.age, hong4.sayHello());
+    console.log(hong5.name, hong5.age, hong5.sayHello());
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      자료형
+
+      1. 기본형
+          1) 숫자형 : number(정수, 실수)
+          2) 문자형 : string('', ""로 감싸져 있는 자료)
+          3) 논리형 : true, false(bool형, boolean형)
+          4) undefined : 자료형이 선언되지 않은 자료형
+          5) null : 유효한 값이 아닌
+      2. 참조형(복합형)
+          1) 배열(array) : 한 개의 변수에 다양한 자료형의 값을 여러개 저장
+          2) 객체(object): 한 개의 변수에 속성과 값, 함수까지 저장가능한 자료형
+    */
+
+    console.log(10, typeof 10);
+    console.log(3.14, typeof 3.14);
+    console.log('문자열', typeof '문자열');
+    console.log("10", typeof "10");
+    console.log('10', typeof '10');
+    console.log('', typeof '');
+    console.log(true, typeof true);
+    console.log(false, typeof false);
+    
+    console.log(10 + "10");
+    console.log(10 + parseInt("10"));
+    console.log(10 + parseInt("한10")); // NaN
+    console.log(10 + parseInt("10한")); // 20
+    
+    console.log(true + 10); // 11, true는 내부적으로 1이라는 값을 가지고 있다
+    console.log(false + 10); // false true는 내부적으로 0이라는 값을 가지고 있다
+    console.log(parseInt(true), Number(false), Number(true)); // NaN, 0, 1
+    // console.log(True); // 대소문자구분, True라는 변수를 정의하지 않아서 에러발생
+    
+    console.log([], typeof []); // object(array)
+    console.log({}, typeof {}); // object(object)
+  </script>
+
+  <script>
+    /*
+      비교연산자
+
+      1. 동등연산자 : ==(값만 비교), ===(값과 자료형까지 비교)
+                      !=(값과 자료형까지 비교), !==(값만 비교) 
+      2. 비교연산자 : >, >=, <, <=  
+    */
+    console.log(1 == 1);    // true
+    console.log(1 == true); // true, true가 내부적으로 1로 형변환 
+    console.log(1 == true); // true, true가 내부적으로 1로 형변환 
+    console.log(1 === true);// false
+    console.log(0 == false);// true
+    console.log(0 === false);// false
+
+    console.log(5 == 0); // false
+    console.log(5 == 5); // true
+    console.log(5 > 5); // false
+    console.log(5 >= 5); // true
+    console.log(5 >= '5'); // true
+
+    console.log(5 == '5'); // true
+    console.log(5 === '5'); // false
+    console.log(5 != '5'); // false
+    console.log(5 !== '5'); // true
+    
+    console.log(30 > 20); // true
+    console.log(30 > 20 > 10); // false, 30 > 20의 결과 true(1) > 10 false
+    console.log(30 > 20 > 0); // true, 30 > 20의 결과 true(1) > 0 true   
+    
+    /*
+    논리연산자
+    
+    1. 부정연산자   : not, !
+    2. 논리곱연산자 : and, &&
+    3. 논리합연산자 : or, ||
+    */
+  console.log('----------------'); 
+  console.log(true); // true
+  console.log(!true); // false
+  console.log(0); // 0
+  console.log(!0); // true, 내부적으로 자동형변환
+  console.log(!1); // false, 내부적으로 자동형변환
+  console.log(!50000);  // boolean에서 0이 아니면 전부 true
+  console.log(!-1);      
+  
+  console.log(!5 > 2);  //  !5(false, 즉 0) > 2 false   
+  console.log(!(5 > 2));  //  false   
+  
+  console.log('----------------'); 
+  console.log(30 > 20 && 20 > 10);  // true 
+  console.log(30 > 20 && 20 < 10);  // false 
+  
+  console.log(30 > 20 || 20 > 10);  // true 
+  console.log(30 > 20 || 20 < 10);  // true 
+</script>
+
+<script>
+  // 입력받은 나이가 18세 이상이면 '성인'경고창, 아니면 '미성년' 경고창
+  // 조건문 if(조건식), 조건식의 결과는 true, false 2가지 결과를 비교
+  let age = parseInt(prompt('나이를 입력하세요!'));
+  // console.log(age >=18); // 크거나 같으면 true, 아니면 false
+  
+  console.log('----------------'); 
+  let result = (age >= 18);
+  console.log(result);
+
+  // if(true) {
+  //   document.write('참입니다!')
+  // }
+  
+  // if(false) {
+  //   document.write('거짓입니다!')
+  // }
+
+  if(age >= 18) {
+    document.write('성인입니다!');
+  } else {
+    document.write('미성년자입니다!');
+  }
+</script>
+
+</head>
+<body>
+  
+</body>
+</html>

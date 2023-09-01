@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /* 
+      forEach / for in / for of
+      
+      1. forEach : 배열과 찰떡 궁합
+        배열명.forEach(콜백함수 { ... }) 
+    */
+
+    const employees = ['손흥민', '김민재', '이강인', '이재성', '황인범', '황희찬'];
+    // 배열에 있는 사원명을 출력하기
+    document.write(employees[0] + '<br>');
+    document.write(employees[1] + '<br>');
+    document.write(employees[2] + '<br>');
+    document.write(employees[3] + '<br>');
+    document.write(employees[4] + '<br>');
+    document.write(employees[5] + '<hr>');
+
+    for(i=0;i<employees.length;i++) {
+      document.write(employees[i] + '<br>');
+    }
+    document.write('<hr>');
+
+    // forEach - normal
+    employees.forEach(function(employee) { 
+      document.write(employee + '<br>');
+    });
+    document.write('<hr>');
+
+    // forEach - ES6의 화살표함수
+    employees.forEach(employee => document.write(employee + '<br>'))
+    document.write('<hr>');
+  </script>
+
+  <script>
+    /* 2. for ... in : 객체와 찰떡궁합 
+      for(변수 in 객체) { ... }
+    */
+    let person = {
+      name: '홍길동',
+      age: 1000,
+      gender: '남자',
+      addr: '조선 한양'
+    }
+    for(key in person) {
+      document.write(`${key} : ${person[key]} <br>`)
+    }
+    document.write('<hr>');
+  </script>
+
+  <script>
+    /* 3. for .. of : 반복가능한 객체(iterable, 배열, 객체, 문자열) 
+      for(변수 of iterable) { ... }
+    */
+    let words = '안녕하세요?';
+    for(v in words) {
+      document.write(`${v} <br>`)
+    }
+    document.write('<hr>');
+
+    for(v of words) {
+      document.write(`${v} <br>`)
+    }
+    document.write('<hr>');
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
