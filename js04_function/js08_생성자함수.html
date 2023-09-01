@@ -66,17 +66,16 @@
         this.mat = mat;
         this.eng = eng;
       }
-      getSum() {
-        return this.kor + this.eng + this.mat 
-      }
-
-      getAvg() {
-        return this.getSum() / 3 
-      }
     }
+    
+    Person.prototype.nation = '신라';
+    Person.prototype.getSum = function() { return this.kor + this.eng + this.mat };
+    Person.prototype.getAvg = function() { return this.getSum() / 3 };
+    Person.prototype.toString = function() { return `나의 이름은 ${this.name} 입니다. 평균은 ${this.getAvg().toFixed(2)}점 입니다}`}
 
     let park = new Person('박혁거세', 90, 80, 88);
-    console.log(park.getAvg());
+    document.write(`${park.name}의 국적은 ${park.nation}, 총점은 ${park.getSum()}, 평균은 ${park.getAvg().toFixed(2)}<br>`)
+
   </script>
 </head>
 <body>
