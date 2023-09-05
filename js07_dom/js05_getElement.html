@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1. getElementById
+    // window.onload = () => {
+    //   let header1 = document.getElementById('header-1');
+    //   let header2 = document.getElementById('header-2');
+
+    //   // 문서객체의 속성을 변경
+    //   header1.innerHTML = "getElementById('header-1')";
+    //   header2.innerHTML = "getElementById('header-2')";
+    //   // console.log(typeof header1);
+    // }
+
+    // 2. getElementsByTagName
+    // window.onload = () => {
+    //   let headers = document.getElementsByTagName('h1');
+    //   console.log(typeof headers); // object -> collection 즉, 배열
+    //   headers[0].innerHTML = 'getElementsByTagName - 1';
+    //   headers[1].innerHTML = 'getElementsByTagName - 2';
+    //   headers[2].innerHTML = 'getElementsByTagName - 3';
+
+    //   for(let i in headers) {
+    //     headers[i].innerHTML = `ByTagName - ${i}`;
+    //   }
+    // }
+
+    // 3. getElementsByName
+    // window.onload = () => {
+    //   let headers = document.getElementsByName('bbb');
+
+    //   for(let i in headers) {
+    //       headers[i].innerHTML = `ByName - ${i}`;
+    //   }    
+    // }
+
+    // 4. getElementsByClassName
+    window.onload = () => {
+      let headers = document.getElementsByClassName('yyy');
+      for(let i in headers) {
+          headers[i].innerHTML = `ByClassName - ${i}`;
+      }       
+    }
+
+  </script>
+</head>
+<body>
+  <!-- h1#header-$[name="aaa"].xxx{header-$}*3 -->
+  <h1 id="header-1" name="aaa" class="xxx">header-1</h1>
+  <h1 id="header-2" name="bbb" class="xxx">header-2</h1>
+  <h1 id="header-3" name="aaa" class="yyy">header-3</h1>
+</body>
+</html>

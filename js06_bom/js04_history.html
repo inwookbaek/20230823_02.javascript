@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      history객체
+
+      브라우저에서 뒤로, 앞으로 또는 주소 표시줄에 입력해서 방문한 사이트 주소가
+      배열형태로 저장된다.
+
+      브라우저의 히스토리는 보안문제 때문에 읽기 전용
+
+      1. 속성
+
+        length : history에 저장되어 있는 갯수
+      
+      2. 메서드
+
+        back()    : history목록에서 이전페이지로 이동
+        forward() : history목록에서 다음페이지로 이동
+        go(n)     : hitsory목록에서 상대위치 페이지로 이동
+          go(-1) 이전페이지, go(1)  다음페이지
+    */
+
+    for(let key in history) {
+      document.write(`${key} = ${history[key]}<br>`)
+    }
+    location.href = 'http://www.naver.com';
+    history.go(-1);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

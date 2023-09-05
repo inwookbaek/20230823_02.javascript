@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 실습. innerHTML vs innerText
+    // li태그를 이용해서 HTML5, CSS3, JavaScript을 body 출력하기
+    // 1. innerHTML
+    let output = '';
+    output += '<ul>';
+    output += '  <li>HTML5</li>';
+    output += '  <li>CSS3</li>';
+    output += '  <li>JavaScript</li>';
+    output += '</ul>';
+
+    document.write(output);
+    document.write(output);
+    document.body.innerHTML = output;
+    document.write('<h1>Document Object Model(1)</h1>');
+    document.body.innerHTML = '<h1>Document Object Model(2)</h1>';
+    
+    // 2. innerText
+    document.body.innerText = '<h1>Document Object Model(3)</h1>';
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

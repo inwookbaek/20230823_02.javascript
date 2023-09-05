@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      문서객체모델(DOM, Document Object Model)
+
+      웹브라우저가 html페이지를 인식하는 방식이며 좁은 의미로는 document객체와
+      관련된 객체를 말한다. 문서객체를 이용하면 html페이지의 tag(요소, elements)를
+      추가, 삭제, 수정할 수가 있다.
+
+      문서객체는 텍스트노드를 갖는 객체(h1~h6, button...)와 텍스트노드를 갖지 않
+      는 객체(body, img...)가 있다.
+
+      1. 속성관련사항
+        1) innerText, innerHTML, textContent : 태그 내부의 문자를 조작
+          ... innerText는 첫 번째 태그의 내부문자만, 
+          ... innerHTML 해당태그 안의 전체 태그와 텍스트(이스케이프문자까지 포함), 
+          ... textContent는 해당태그 안의 모든 태그의 텍스트만 가져 옴
+        2) style : 태그의 스타일을 조작
+        3) setAttribute(속성이름, 속성값) : 태그의 속성을 설정
+        4) getAttribute(속성이름)         : 태그의 속성을 읽기
+
+      2. 메서드관련사항
+
+        1) createElement(태그)    : 정의된 태그(문서객체)를 생성
+        2) createTextNode(문자열) : TextNode생성
+        3) appendChild(태그)      : 지정된 태그를 자식태그로 추가
+        4) getElementById(id)     : 지정된 id속성을 가진 태그를 선택(only 1)
+        5) getElementsByClassName(class) : class속성을 가진 모든 태그를 선택
+        6) getElementsByTag(tag)  : 지정된 모든 태그를 선택
+        7) querySelector(선택자)  : 지정된 선택자(태그, 자손, 구조...)를 선택(only 1)
+        8) querySelectorAll(선택자) : 지정된 선택자의 모든 태그를 선택
+            ... ex) querySelectorAll('#xxx > p')
+    */
+    window.onload = () => {
+      document.write('<h1>Hello DOM(1)!!!</h1>');
+
+      let header = document.createElement('h1'); // header -> <h1></h1>
+      let text = document.createTextNode('Hello DOM(2)!!!'); // 텍스트
+
+      header.appendChild(text); // header -> <h1>Hello DOM(2)!!!</h1>
+
+      document.body.appendChild(header);
+
+      for(let key in header) {
+        document.write(`${key} = ${header[key]}<br>`)
+      }
+      
+    }
+  </script>
+</head>
+<body>
+  <h1 class="aaa">1</h1>
+  <h1 class="aaa">2</h1>
+  <h1 class="aaa">3</h1>
+  <h1 class="aaa">4</h1>
+  <h1 class="aaa">5</h1>
+</body>
+</html>

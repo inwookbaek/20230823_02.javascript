@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /* 화살표함수 */
+    let hi = function() {
+      return '0. 안녕하세요? 반갑습니다.<br>'
+    }
+    document.write(hi());
+
+    // 1. 매개변수가 없을 경우
+    // a) return 한 문장만 있을 경우
+    //    ... return문과 실행블럭({}) 생략가능
+    hi = () => { return '1. 안녕하세요? 반갑습니다.<br>'}
+    document.write(hi());  
+    
+    // b) return 한 문장만 있을 경우
+    hi = () =>  '2. 안녕하세요? 반갑습니다.<br>'
+    document.write(hi() + '<hr>');
+    
+    // 2. 매개변수가 한 개만 있을 경우
+    // 매개변수의 소괄호 생략가능
+    let hello = function(name) {
+      return  `1. ${name}님 어서오세요! 환영합니다<br>`;
+    }
+    document.write(hello('홍길동'));  
+
+    hello = (name) => {  return  `2. ${name}님 어서오세요! 환영합니다<br>`; }
+    document.write(hello('손흥민'));  
+    
+    hello = name => {  return  `3. ${name}님 어서오세요! 환영합니다<br>`; }
+    document.write(hello('이강인'));  
+    
+    hello = name => `4. ${name}님 어서오세요! 환영합니다<hr>`; 
+    document.write(hello('김민재'));  
+
+    // 3. 매개변수가 한 개 이상일 경우
+    // 매개변수의 소괄호 생략 불가
+    let 더하기 = function(a,b) {
+      return a+b;
+    }
+    document.write(더하기(10, 10) + '<br>'); 
+    
+    더하기 = (a, b) => a + b;
+    document.write(더하기(30, 10)); 
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

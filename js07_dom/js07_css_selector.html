@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1 id="title">프로필</h1>
+  <div id="profile">
+    <img src="images/pf.png" alt="홍길동">
+    <div id="desc">
+      <p class="user">이름 : 홍길동</p>
+      <p class="user">주소 : 조선 한양</p>
+      <p class="user">연락처: 010.9999.8888</p>
+    </div>
+  </div>
+  <h1>classList</h1>
+  <button id="btn1">class속성 추가</button>
+  <button id="btn2">class속성 삭제</button>
+  <button id="btn3">class속성 추가 및 삭제</button>
+  <script>
+    // class 속성 추가/삭제
+    // classList : 객체의 class속성을 배열형태로 저장
+    // 특정 class속을 추가(classList.add()), 삭제(classList.remove())
+    let title = document.querySelector('#title');
+    let btnAdd = document.querySelector('#btn1');
+    let btnDel = document.querySelector('#btn2');
+
+    btnAdd.onclick = () => {
+      title.classList.add('clicked');
+    }
+
+    btnDel.onclick = () => {
+      title.classList.remove('clicked');
+    }
+
+    // contains() : 특정 클래스 스타일 여부
+    // classList.contains(클래스명)
+    console.log(document.getElementById('title').classList.contains('clicked'));
+
+    let btnToggle = document.querySelector('#btn3');
+    btnToggle.onclick = () => {
+      if(!title.classList.contains("clicked")) {
+        title.classList.add('clicked');
+      } else {
+        title.classList.remove('clicked');
+      }
+      let btnToggle = document.querySelector('#htn4');
+      btnToggle.oncklick = () => {}
+    }
+    
+  </script>
+</body>
+</html>

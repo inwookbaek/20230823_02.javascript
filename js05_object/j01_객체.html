@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      객체란?
+      속성과 메서드(기능)를 가지고 있는 참조자료형이다.
+      객체{}는 키와 값을 한 쌍으로 갖는 자료형이다.
+      배열[]은 값만 가지고 있는 객체이다.
+
+      객체의 최상위 객체는 Object이고 자바스크립에서 모든 객체는
+      Object를 최상위부로로 가지고 있다.
+    */
+   document.write(`배열 = ${typeof []}<br>`);
+   document.write(`객체 = ${typeof {}}<br>`);
+
+   // 1. 객체
+   let obj1 = {};
+   let obj2 = new Object(); /* 생성자함수 */
+
+   // class와 object의 차이점은 class는 데이터가 없고 object 데이터가 있다.
+   // 1. 객체 - 자기 자신
+   let person = {
+    name: '홍길동',
+    age: 1000,
+    speak : function() { return '말을 한다!'}
+   }
+
+   document.write(`person속성(name) : ${person.name}<br>`);
+   document.write(`person속성(age) : ${person['age']}<br>`);
+   document.write(`person기능(speak) : ${person.speak()}<br>`);
+
+  // 2. class : 객체를 생성하기 위한 틀
+  class Person {
+    name;
+    age;
+    gender;
+    speak() { return '말을 한다!'}
+
+    constructor(name, age, gender) {
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+    }
+  }
+
+  let hong = new Person('홍길동', 1000);
+  let adam = new Person('아담', 10000, '남자');
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

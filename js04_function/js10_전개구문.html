@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /* 이모지콘 단축키 : window key + . */
+    let arr = ['🍟', '🥙', '🍘', '🍛', '🍚', '🥓'];
+    console.log(arr);
+    
+    // 1. 전개구문(마침표3개) - 값만 복사
+    // 객체의 속성과 메서드가 아닌 값만 사용하고자 할 때 유용
+    console.log(...arr);
+
+    // 2. 나머지 매개변수 - 매개변수갯수가 블특정 다수일 때 사용할 떄 유용
+    // 주의할 점은 일반매개변수와 같이 사용할 때는 맨뒤에 정의해야 한다.
+    function totalSum(a,b,c,d) {
+      return a+b+c+d;
+    }
+    console.log(totalSum(1,2,3,4,5,6,7,8,9,10))
+
+    function addSum(...nums) {
+      let sum = 0;
+      for(let num of nums) {
+        sum += num;
+      }
+      return sum;
+    }
+    console.log(addSum(1,2,3,4,5,6,7,8,9,10))
+    console.log(addSum(1,2,3))
+    console.log(addSum(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15))
+
+    function addSum1(a, ...nums) {
+      console.log(a, nums);
+    }
+    console.log(addSum1(1,2,3,4,5,6,7,8,9,10))
+
+    // 나머지매개변수가 다른 매개변수보다 앞에 정의불가
+    // function addSum2(...nums, a) {
+    //   console.log(a, nums);
+    // }
+    // console.log(addSum1(1,2,3,4,5,6,7,8,9,10))
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

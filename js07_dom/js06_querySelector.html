@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1. querySelector - 한개의 문서객체
+    // window.onload = () => {
+    //   let header1 = document.querySelector('#header-1');
+    //   let header2 = document.querySelector('#header-2');
+
+    //   header1.innerHTML = 'querySelector 메서드 1';
+    //   header2.innerHTML = 'querySelector 메서드 1';
+    // }
+    // 2. querySelectorAll - 배열형태
+    // window.onload = () => {
+    //   let headers =  document.querySelectorAll('h1');
+    //   for(let i in headers) {
+    //     headers[i].innerHTML = `querySelectorAll - ${i}`;
+    //   }
+    // }
+
+    // 3. 동적으로 문서객체 변경하기
+    // 실습. header-3를 선택해서 header-1의 스타일을 적용
+    //       문서객체의 스타일은 style속성을 적용
+    //       inline에서 배경색의 style은 background-color 이지만
+    //       문서객체의 background-color속성은 backgroundColor
+    // window.onload = () => {
+    //   let header1 =  document.querySelector('#header-1');
+    //   let header3 =  document.querySelector('#header-3');
+
+    //   header3.style.border = header1.style.border;
+    //   header3.style.color = header1.style.color;
+    //   header3.style.backgroundColor = header1.style.backgroundColor;
+    //   header3.style.backgroundColor = 'blue';
+    // }
+    // 4. 문서객체를 삭제하기
+    //    appendChild추가하는 거라면 removeChild()로 객체를 삭제
+    // 실습. #header-4객체를 삭제하기
+    // window.onload = () => {
+    //   let header4 =  document.querySelector('#header-4');
+    //   document.body.removeChild(header4);
+    // }    
+
+    // 실습. button클릭시에 header-4 삭제하기
+    // 힌트) button객체 선택, onclick 이벤트 설정
+    // window.onload = () => {
+    //   let btn = document.querySelector('button');
+    //   let header4 =  document.querySelector('#header-4');
+    //   btn.onclick = () => {  
+    //     document.body.removeChild(header4);
+    //   }
+    // }
+
+    // 실습. btton을 클릭할 때마다 h1를 맨 위에서 부터 삭제하기
+    // querySeletorAll(), 배열의 맨 index가 0인 문서객체를 삭제
+    window.onload = () => {
+      let btn = document.querySelector('button');
+      btn.onclick = () => {
+        let headers = document.querySelectorAll('h1');
+        document.body.removeChild(headers[0]);
+      }
+    }    
+  </script>
+</head>
+<body>
+  <h1 id="header-1"
+    style="border: 2px solid red; color: green; background-color: gold;">Header</h1>
+  <h1 id="header-2">Header</h1>
+  <h1 id="header-3">Header</h1>
+  <h1 id="header-4">Header4</h1>
+  <button>Header4삭제하기</button>
+</body>
+</html>

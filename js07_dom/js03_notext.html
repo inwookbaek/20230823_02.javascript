@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 실습 img tag를 window객체가 로딩이 끝날 떄 추가 해보기
+    // setAttribute메서드를 이용해서 width 200, height 150로 설정
+    window.onload = () => {
+      let img = document.createElement('img');
+      img.src = "./images/blackpink3.jpg"
+      img.width = 100;
+      img.height = '50';
+      document.body.appendChild(img);
+  
+      // setAttribute
+      let img1 = document.createElement('img');
+      img1.setAttribute('src', "./images/blackpink3.jpg");
+      img1.setAttribute('width', 200);
+      img1.setAttribute('height', 150);
+      document.body.appendChild(img1);
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>

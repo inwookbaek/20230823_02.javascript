@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1. 객체의 선언과 속성 정의하기
+    let student1 = {}; // 빈 객체를 선언
+
+    // 객체의 속성을 정의하는 방법
+    // 1. 객체를 생성할 떄 빈 객체를 선언하는 것이 아니라 속성, 메서드를 정의
+    let student2 = {name:'홍길동', gender:'남'}; 
+
+    // 2. 빈 객체를 선언후 속성을 추가방법
+    let student3 = {};
+    student3.name = '손흥민';
+    student3['gender'] = '남자';
+    student3.age = 31;
+    student3.job = '축구선수';
+    student3.act = function() { return '축구를 합니다!'}
+
+    // 3. 객체의 속성을 출력
+    for(let key in student3) {
+      document.write(`${key} = ${student3[key]}<br>`)
+    }
+
+    // 4. 객체의 메서드 재정의/추가
+    document.write(`obect의 메서드 - ${student3.toString()}<br>`)
+    
+    // a) 부모(object)에서 상속받은 메서드(toString()) 재정의
+    student3.toString = function() {
+      return `나의 이름은 ${this.name} 입니다. 나이는 ${this.age}살 입니다!`
+    }
+    document.write(`student3에서 재정의된 toString() - ${student3.toString()}<br>`)
+
+    // b) 메서드 추가하기
+    student3.study = function(course) {
+      return `${this.name}이 ${this.course}를 공부합니다!`
+    }
+
+    student3.course = '';
+    document.write(`student3에 추가된 study - ${student3.study('과학')}<hr>`)
+    
+    for(let key in student3) {
+      document.write(`${key} = ${student3[key]}<br>`)
+    }
+    document.write('<hr>');
+
+    // 5. delete - 객체의 속성, 메서드 삭제하기
+    delete(student3.course);
+    delete(student3.study);
+    for(let key in student3) {
+      document.write(`${key} = ${student3[key]}<br>`)
+    }    
+</script>
+</head>
+<body>
+  
+</body>
+</html>

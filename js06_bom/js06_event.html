@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      이벤트(Event)?
+
+      이벤트란? 문서객체속성중에서 'on'으로 시작되는 속성을 이벤트 속성이라고 한다.
+      이벤트속성은 기본으로 null값이 저장되어 있어서 해당 이벤트를 사용하려면 이벤트
+      속성에 사용자가 원하는 기능(function)을 정의해야 한다.
+
+      window객체에는 많은 이벤트가 존재하는데 window객체의 로드가 완료가 되면
+      onload이벤트에 할당된 함수가 자동으로 실행된다.
+
+      window객체의 로드가 완료된다는 의미는 html파일안에 존재하는 모든 태그들이 로드가
+      완료된다는 의미이다. 즉, html파일에 존재하는 모든 태그들이 메모리에 로딩이 된 후에
+      onload에 할당된 함수를 실행다는 의미이다.
+    */
+    window.onload = () => alert('1st process');
+  </script>
+</head>
+<body>
+  <h2>2nd process</h2>
+  <script>
+    alert('2nd process');
+  </script>
+
+  <h2>3rd process</h2>
+  <script>
+    alert('3rd process');
+  </script>
+  
+  <button onclick="window.close()">창닫기</button>
+
+</body>
+</html>

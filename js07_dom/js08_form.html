@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/order.css">
+</head>
+<body>
+	<div id="container">
+		<form name="order">
+      <fieldset>
+				<legend>상품 정보</legend>
+				<ul>
+					<li>
+						<label class="field" for="product">상품 : </label>
+						<input type="text" class="input-box" id="product" name="product">
+					</li>
+					<li>
+						<label class="field" for="prod-num">갯수 : </label>
+						<input type="number" class="input-box"  id="prod-num" name="prod-num" value="1" min="1">
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset>
+				<legend>주문 정보</legend>
+				<ul>
+					<li>
+						<label class="field" for="order-name">이름 : </label>
+						<input type="text" class="input-box" id="order-name" name="order-name">
+					</li>
+					<li>
+						<label class="field" for="order-tel">연락처 : </label>
+						<input type="text" class="input-box" id="order-tel" name="order-tel">	
+					</li>
+					<li>
+						<label class="field" for="order-addr">주소 : </label>
+						<input type="text" class="input-box" id="order-addr" name="order-addr">
+					</li>
+				</ul>
+			</fieldset>
+	
+			<button type="submit" class="order">주문하기</button>
+
+      <select name="major" id="major">
+        <option value="">--- 주전공을 선택하세요 ---</option>
+        <option value="a">건축공학</option>
+        <option value="m">기계공학</option>
+        <option value="e">교육공학</option>
+        <option value="x">전자공학</option>
+        <option value="c">컴퓨터공학</option>
+      </select>
+      <hr>
+      <fieldset>
+        <legend>수강신청과목</legend>
+        <p>신청할 수강과목을 선택하세요!!</p>
+        <label><input type="radio" name="subject" value="speaking">회화</label>
+        <label><input type="radio" name="subject" value="grammer">문법</label>
+        <label><input type="radio" name="subject" value="writing">작문</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>메일링</legend>
+        <p>메일로 받고 싶은 뉴스를 선택하세요!!</p>
+        <label><input type="checkbox" name="mailing" value="news">뉴스</label>
+        <label><input type="checkbox" name="mailing" value="food">음식</label>
+        <label><input type="checkbox" name="mailing" value="hobby">취미</label>
+      </fieldset>
+		</form>		
+	</div>
+  <script>
+    // 문서객체의 값을 가져오는 방법
+    // 1. input 문서객체의 값 : 문서객체.value;
+    // document.querySelector('#order-name').value;
+    
+    // 2. name 속성이용
+    // document.order.product.value
+
+    // 3. form배열이용
+    // document.forms -> form안에 있는 태그를 배열형태로 저장
+    // document.forms[0].elements -> 배열형태
+    // document.forms[0].elements[4].value; -> 배열의 index로 값 읽기
+
+    // 4. select태그의 값
+    // document.querySelector('#major').options
+    // document.querySelector('#major').options.selectedIndex 또는
+    // document.querySelector('#major').selectedIndex
+
+    // 5. radio 접근하기
+    // document.querySelector('form').subject;
+
+    // 6. checkbox접근하기
+    // document.querySelector('form').mailing;
+    // checked 
+    // document.querySelector("input[name='mailing']:checked")
+    // document.querySelectorAll("input[name='mailing']:checked")
+  </script>
+  </div>
+</body>
+</html>
