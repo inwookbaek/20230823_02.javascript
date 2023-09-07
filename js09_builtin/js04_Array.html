@@ -3,6 +3,136 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script>
+    /*
+      Array객체
+
+      1. 배열을 생성하는 방법
+
+      let arr1 = [];
+      let arr2 = [1,2,3]
+      let arr3 = Array()    - 크기가 정해져 있지 않은 빈 배열
+      let arr4 = Array(num) - num크기 만큼의 빈 배열
+      let arr5 = Array(any, ..., any) - 매개변수에 있는 내용을 가진 배열
+
+      2. 속성과 메서드
+
+      length : 배열의 크기
+      push() : 맨 뒤에 요소를 추가
+      pop()  : 맨 뒤에 요소를 꺼내오고 동시에 삭제
+      slice(start, end) : start ~ end-1까지 새로운 배열객체를 반환, 원본변동없음
+      join(문자열) : 배열요소를 문자열로 연결해서 하나의 문자열로 리턴
+      reverse() : 배열요소를 뒤집기(원본변경)
+      sort() : 배열요소를 정렬(원본변경)
+      concat() : 배열을 합쳐서 새로운 배열을 리턴
+
+      map() : 원본배열을 가공해서 새로운 배열을 리턴(원본유지)
+      filter() : 원본배열에서 특정 조건에 맞는 요소만 추출해서 새로운 배열로 리턴
+      reduce() : 요소들을 주어진 리듀스함수를 실행한 후에 하나의 결과값만 리턴 
+      forEach(): 요소들을 주어진 함수로 반복해서 하나씩 전달
+    */
+
+    let arr1 = [1,2,3,4,5];
+    document.write(`<h3>[${arr1}]<h3>`);  
+
+    document.write(`1. arr1.length = ${arr1.length}<br>`);     
+    document.write(`2. arr1.push(10) = ${arr1.push(10)} : ${arr1}<br>`);   
+    document.write(`3. arr1.push({}, '문자열', 함수) = ${arr1.push({}, '문자열', ()=>{})} : ${arr1}<br>`);   
+    document.write(`4. arr1.pop() = ${arr1.pop()} : ${arr1}<br>`); 
+    document.write(`5. arr1.slice(1,4) = ${arr1.slice(1,4)} : ${arr1}<hr>`); 
+    
+    let arr2 = [1,2,3,4,5]
+    document.write(`<h3>[${arr2}]<h3>`);  
+    document.write(`6. arr2.join('/') = ${arr2.join('===')} : ${arr2}<br>`); // 원본불변
+    document.write(`7. arr2.reverse() = ${arr2.reverse()} : ${arr2}<br>`);   // 원본변경
+    document.write(`8. arr2.sort() = ${arr2.sort()} : ${arr2}<hr>`);         // 원본변경
+
+    arr2 = [1,4,9,16];
+    document.write(`<h3>[${arr2}]<h3>`);
+    // n => a*2 -> function(n) { return a*2}
+    document.write(`9. arr2.map(콜백함수) = ${arr2.map(function(n) { return n*2})} : ${arr2}<br>`);
+    document.write(`9. arr2.map(콜백함수) = ${arr2.map(a => a*5)} : ${arr2}<br>`);
+    // [true,false,true,false] -> true인 요소만 리턴 -> [1, 9];
+    document.write(`10. arr2.filter(콜백함수) = ${arr2.filter(a => a>4)} : ${arr2}<br>`);
+    document.write(`10. arr2.filter(콜백함수) = ${arr2.filter(a => a%2)} : ${arr2}<hr>`);
+    
+    // reduce : 1 + 4 + 9 + 16  = 30
+    let 초기값 = 0;
+    let total = arr2.reduce((이전값, 현재값) => 이전값 + 현재값, 초기값);
+    document.write(`11. arr2.reduce(콜백함수) = ${total} : ${arr2}<br>`);
+    let i = 5;
+    total = arr2.reduce((p, c) => p * c, i);
+    document.write(`11. arr2.reduce(콜백함수) = ${total} : ${arr2}<hr>`);
+    
+    // forEach(콜백함수)
+    arr2.forEach(a => console.log(a));
+    arr2.forEach(x => {
+      if(x>4) console.log(x);
+    })
+    
+    // concat
+    document.write(`12. arr1.concat(arr2) = ${arr1.concat(arr2)}<hr>`);
+
+    // sort 객체의 정렬 
+    function Student(name, kor, eng, mat) {
+      this.name = name;
+      this.kor = kor;
+      this.eng = eng;
+      this.mat = mat;
+      
+      this.getSum = function() { return kor+eng+mat}
+      this.getAvg = () => this.getSum() / 3;
+      this.toString = function() {
+        return `이름 : ${this.name}, 국어=${this.kor}, 영어=${eng}, 수학=${this.mat}` + 
+          `, 총점=${this.getSum()}, 평균=${this.getAvg()}`
+      }
+    }
+
+    // 실습
+    // 1. students 3명의 학생을 추가, 홍길동, 손흥민, 이강인(3명의 각각 점수포함)
+    // 2. 이름순으로 정렬(sort) : (a.name, b.name) => return b.name > a.name : true : false -> -1 0 1
+    // 3. 총점순으로 정렬(sort)
+    // 4. 2등까지만 출력(slice(0,2))
+    let students = [];
+    students.push(new Student('홍길동', 10,10,10));
+    students.push(new Student('손흥민', 20,10,10));
+    students.push(new Student('이강인', 30,10,10));
+
+    // 1. sort
+    // students.sort((a, b) => {
+    //   return b.name > a.name ? true : false; // -1 0 1;
+    // });
+
+    // for(let i in students) {
+    //   document.write(students[i].toString() + '<br>')
+    // }
+
+
+    // 2. 총점순
+    students.sort((a, b) => {
+      return b.getSum() - a.getSum();
+    });
+    for(let i in students) {
+      document.write(students[i].toString() + '<br>')
+    }    
+    document.write('<hr>');
+
+    // 3. 2등까지만
+    let std = students.sort((a, b) => {
+      return b.getSum() - a.getSum();
+    }).slice(0,2);
+
+    for(let i in std) {
+      document.write(std[i].toString() + '<br>')
+    }   
+    
+    // filter : 국어점수가 20이상인 학생만
+    document.write('<hr>');
+    std = students.filter(s => s.kor > 20);
+    for(let i in std) {
+      document.write(std[i].toString() + '<br>')
+    }     
+  </script>
 </head>
 <body>
   

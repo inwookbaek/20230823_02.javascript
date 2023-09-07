@@ -3,24 +3,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script>
-    // 실습1. header3클릭하면 삭제가 되는 onclick이벤트를 작성하기
-    // 실습2. 임의의 img태그를 클릭하면 상세내용이 숨겨지는 이벤트를 작성하기
-    // 실습3. botton클릭시에 클릭횟수를 카운트하기
-    //        button-1을 클릭하면 동시에 2개의 button클릭횟수를 카운트하고
-    //        button-2를 클릭하면 button-2의 클릭횟수만 카운트하기
-
-  </script>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    #item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
   <!-- 실습1 -->
-  <h3 id="header3">여기를 클릭하면 문서객체가 삭제됩니다!</h3>
+  <h3 id="header3" onclick="del_header3()">여기를 클릭하면 문서객체가 삭제됩니다!</h3>
+  <h3 id="header4">여기를 클릭하면 문서객체가 삭제됩니다!</h3>
 
   <!-- 실습2 -->
 	<div id="item">
-		<img src="images/potato.jpg" alt="">
+		<img src="images/pic-1.jpg" alt="">
 		<button class="over" id="open" onclick="showDetail()">상세 설명 보기</button>
-		<div id="desc" class="detail">
+		<div id="desc" class="detail" style="display: none;">
 			<h4>민들레</h4>
 			<p>어디서나 매우 흔하게 보이는 잡초로서 바닥에 딱 붙어서 꽃봉오리 하나가 쏙 올라온다. 톱니 모양의 잎새와 눈에 확 띄는 노란 꽃이 인상적이다. 특히 꽃이 지고나면 솜털모양의 깃을 가진 씨앗들이 나오는데 바람을 타고 날아가서 널리 퍼진다.</p>
 			<button id="close" onclick="hideDetail()">상세 설명 닫기</button>
@@ -34,5 +36,45 @@
 	<h1>Button1 - <span id="count-1">0</span></span></h1>
 	<h1>Button2 - <span id="count-2">0</span></span></h1>
   <hr>  
+
+  <script>
+    // 실습1. header3클릭하면 삭제가 되는 onclick이벤트를 작성하기
+    function del_header3() {
+      let header3 = document.getElementById('header3');
+      header3.remove();
+    }
+
+    let header4 = document.getElementById('header4');
+    header4.onclick = e => { 
+      // alert(e.target);
+      e.target.remove();
+    }
+
+    // 실습2. 임의의 img태그를 클릭하면 상세내용이 숨겨지는 이벤트를 작성하기
+    function showDetail() {
+      document.getElementById("desc").style.display = "block"; 
+    }
+    function hideDetail() {
+      document.getElementById("desc").style.display = "none";
+    }
+
+    // 실습3. botton클릭시에 클릭횟수를 카운트하기
+    //        button-1을 클릭하면 동시에 2개의 button클릭횟수를 카운트하고
+    //        button-2를 클릭하면 button-2의 클릭횟수만 카운트하기
+    let btn1 = document.querySelector('#button-1');
+    let btn2 = document.querySelector('#button-2');
+    let cnt1 = document.querySelector('#count-1');
+    let cnt2 = document.querySelector('#count-2');
+
+    btn1.onclick = e => {
+      cnt1.innerText = Number(cnt1.innerText) + 1;
+      cnt2.innerText = Number(cnt2.innerText) + 1;
+    }
+
+    btn2.onclick = e => {
+      cnt2.innerText = Number(cnt2.innerText) + 1;
+    }
+
+  </script>
 </body>
 </html>
