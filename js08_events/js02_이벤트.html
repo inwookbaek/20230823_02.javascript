@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/js02.css">
+  <script>
+    window.onload = () => {
+      function whenClick() {
+        alert('문서객체(DOM)가 클릭이 되었습니다!');
+      }
+
+      // 1. 이벤트추가
+      let header1 = document.querySelector('#header1');
+      header1.onclick = whenClick;
+      let header2 = document.querySelector('#header2');
+      header2.onclick = whenClick;
+
+      // 2. 이벤트삭제
+      header2.onclick = null;
+
+      // 실습. 텍스트필드에 입력한 글자수를 출력하기
+      // String.prototype.length
+      // let xxx = 'aaa';
+      // xxx.length -> 글자수
+      // addEventListner('click', 콜백함수)
+      const button = document.querySelector('#btn');
+
+      button.addEventListener('click', () => {
+        let words = document.querySelector('#words').value;
+        let result = document.querySelector('#result');
+        let count = words.length;
+        result.innerText = count;
+      })
+    }
+  </script>
+</head>
+<body>
+  <h3 id="header1">여기를 클릭하세요!!</h3>
+  <h3 id="header2">여기를 클릭하세요!!</h3>
+  <h3 id="header3">여기를 클릭하세요!!</h3>
+  <hr>
+  <input type="text" id="words"><br>
+  <button id="btn">글자수 확인하기</button>
+  <div id="result"></div>
+</body>
+</html>

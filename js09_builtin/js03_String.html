@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // String 객체
+    // String객체를 생성하는 방법은 리터럴로 생성하는 방법과 생성자함수로 생성하는
+    // 방법이 있다.
+
+    // 1. 생성하는 방법
+    let str1 = 'Hello World!!';
+    let str2 = new String('Hello JavaScript!!');
+
+    // 2. 속성과 메서드
+    document.write(`<h3>${str1}</h3><br>`)
+    document.write(`1. ${str1} 문자열의 길이 : ${str1.length}<br>`)
+    document.write(`2. str1[1] = ${str1[1]}<br>`)
+    document.write(`3. charAt(6) = ${str1.charAt(6)}<br>`)
+    document.write(`4. str1.concat(str2) = ${str1.concat(str2)}<br>`)
+    document.write(`5. str1.indexOf('W') = ${str1.indexOf('W')}<br>`)
+    document.write(`6. str1.indexOf('o') = ${str1.indexOf('o')}<br>`)
+    document.write(`7. str1.indexOf('o', 6) = ${str1.indexOf('o', 6)}<br>`)
+    document.write(`8. str1.lastIndexOf('o') = ${str1.lastIndexOf('o')}<br>`)
+    document.write(`9. str1.replace('o', 'x') = ${str1.replace('o', 'x')}<br>`)
+    document.write(`10. ${str1}<br>`)
+    str1 = str1.replace('o', 'x')
+    document.write(`11. ${str1}<br>`)
+
+    // 문자열 검색 메서드 : indexOf, search 
+    // 검색결과가 없다면 indexOf, search는 결과값을 -1로 리턴
+    // 두 메서드의 차이점은 
+    // 1. indexOf는 정규식(Requla Expression)을 허용하지 않지만 search 정규식을 허용
+    // 2. indexOf는 검색위치를 지정할 수 있지만 search는 지정할 수 없다.
+    document.write(`12. str1.search('lx') = ${str1.search('lx')}<br>`)
+    document.write(`13. str1.slice(1, 5) = ${str1.slice(1, 5)}<br>`) // strar 1, end-1
+
+    let str3 = "홍길동,홍길순,손흥민,이강인";
+    let arr3 = str3.split(','); // split() 쉼표를 기준으로 문자열을 분리후 배열저장메서드
+    document.write(`14. str3.split(',') = ${arr3.length} : `) 
+    for(let i in arr3) {
+      document.write(`${arr3[i]} / `)
+    }
+    document.write('<hr>');
+    
+    // substr/substring 문자열 추출하는 메서드
+    document.write(`15. str1.substr(1,3) = ${str1.substr(1,3)}<br>`); // start, count
+    document.write(`16. str1.substring(1,4) = ${str1.substring(1,4)}<br>`); // start, end-1
+    document.write(`17. str1.substring(5) = ${str1.substring(5)}<br>`); // start, 끝까지
+    
+    // toLowerCase/toUpperCase : 대소문자 변경 메서드
+    document.write('<hr>');
+    document.write(`18. str1.toLowerCase() = ${str1.toLowerCase()}<br>`); 
+    document.write(`18. str1.toUpperCase() = ${str1.toUpperCase()}<br>`); 
+    document.write(`18. ${str1}<br>`)
+    document.write('<hr>');
+
+    // 메서드체이닝 : 
+    let output = "Hello JavaScript!!"
+    output = output.toLowerCase();
+    output = output.substring(0, 10);
+    output = output.concat('name');
+    document.write('메서드호출 = ' + output + '<br>');
+    
+    output.toLocaleLowerCase().substring(0,10).concat('name');
+    document.write(`메서드호출 = ${output} <br>`);
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

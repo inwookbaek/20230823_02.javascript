@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+	canvas {
+		background: #111111;
+	}
+</style>
+<body>
+	<canvas id="canvas" width="500" height="320"/>
+</body>
+<script>
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+
+	var currentDegree = 0; // 태양에 대한 지구의 위치(각도)
+	var currentMoonDegree = 0; // 지구에 대한 달의 위치(각도) 
+
+	window.onload = () => {
+		loop();
+	}
+
+	function loop() {
+		// 계속해서 애니메이션 진행 
+		setInterval(update, 1000 / 20); // 20FPS 프레임 속도
+	}
+
+	function update() {
+		// 이전에 그림을 지우고 다시 그림
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		drawSun();
+		const [earthDx, earthDy] = drawEarth();
+		drawMoon(earthDx, earthDy);
+	}
+
+	function drawSun() {
+		context.beginPath();
+
+		// 태양의 위치는 캔버스 중간
+		var dx = canvas.width / 2;
+		var dy = canvas.height / 2;
+		var radius = 30;
+
+		context.arc(dx, dy, radius, 0, 2 * Math.PI);
+		context.fillStyle = "yellow"
+		context.fill();
+		context.lineWidth = 5;
+		context.strokeStyle = "orange";
+		context.stroke();
+	}
+
+	function drawEarth() {
+		var distanceFromSun = 100;
+
+		context.beginPath();
+
+		// 캔버스의 중간지점 + 삼각비에 길이를 곱해주면 된다. 
+		var dx = (canvas.width / 2) + Math.cos(deg2Rad(currentDegree)) * distanceFromSun;
+		var dy = (canvas.height / 2) + Math.sin(deg2Rad(currentDegree)) * distanceFromSun;
+
+		var radius = 10; 
+
+		context.arc(dx, dy, radius, 0, 2 * Math.PI);
+		context.lineWidth = 5;
+		context.fillStyle = "lightseagreen";
+		context.fill();
+		context.strokeStyle = "green";
+		context.stroke();
+
+		currentDegree++;
+
+		// 달을 위해 지구의 현재 위치를 반환
+		return [dx, dy];
+	}
+
+	function drawMoon(earthDx, earthDy) {
+		var distanceFromEarth = 20;
+
+		context.beginPath();
+		var dx = earthDx + Math.cos(deg2Rad(currentMoonDegree)) * distanceFromEarth;
+		var dy = earthDy + Math.sin(deg2Rad(currentMoonDegree)) * distanceFromEarth;
+		var radius = 3;
+
+		context.arc(dx, dy, radius, 0, 2 * Math.PI);
+		context.lineWidth = 5;
+		context.strokeStyle = "white";
+		context.stroke();
+
+		// 지구의 공전속도보다 훨씬 빠르게
+		currentMoonDegree += 12;
+	}
+
+	function deg2Rad(degree) {
+		return Math.PI / 180 * degree; 
+	}
+	
+</script>
+</html>

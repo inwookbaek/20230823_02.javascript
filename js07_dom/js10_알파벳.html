@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // canvas 태그 - 자바스크립트를 이용해서 그래픽 콘텐츠를 그릴 때 사용
+    // A. 생성자함수
+    // a. 움직일 수 있는 범위
+    let canvasWidth = 700;
+    let canvasHeight = 400;
+
+    // b. 알파벳생성자함수
+    function MovingAlphabet() {
+      // 알파벳생성
+      this.body = document.createElement('h1');
+      this.body.innerHTML = randomAlphabet();
+      this.body.style.position = 'absolute';
+      document.body.appendChild(this.body);
+
+      // 알파벳의 위치와 속도
+      this.x = nextRandomInteger(canvasWidth);
+      this.y = nextRandomInteger(canvasHeight);
+      this.vx = alphabetSpeed(10);
+      this.vy = alphabetSpeed(10);
+    }
+
+    // c. 알파벳움직이는 함수
+    MovingAlphabet.prototype.move = function() {
+      // 범위검사
+        if(this.x < 0 || this.x > canvasWidth) this.vx *= -1;
+        if(this.y < 0 || this.y > canvasHeight) this.vy *= -1;
+
+      // 이동
+      this.x += this.vx;
+      this.y += this.vy;
+
+      // 화면에서 움직이는 효과 정의 - style(left, top) -> 화면이동효과
+      this.body.style.left = this.x + 'px';
+      this.body.style.top = this.y + 'px';
+    }
+  </script>
+
+  <script>
+    // B. 보조함수
+    // 1. 알파벳선택함수
+    let alphabet = 'ABCSEDGHIJKLMNOPQRSTUVWXYZ';
+    function randomAlphabet() {
+      return alphabet.charAt(nextRandomInteger(25))
+    }
+
+    // 2. 랜덤하게 알파벳을 선택한 함수
+    function nextRandomInteger(limit) {
+      return Math.round(Math.random() * limit)
+    }
+
+    // 3. 알파벳의 움직은 속도
+    function alphabetSpeed(maxSpeed) {
+      return Math.random() * maxSpeed - Math.random() * maxSpeed;
+    }
+  </script>
+
+  <script>
+    // C. 메인로직
+    window.onload = function() {
+      // 알파벳객체를 랜덤하게 생성하기 위한 배열
+      let movingAlphabets = [];
+
+      let count = 26; // 알파벳객체 생성 갯수설정
+
+      for(let i=0;i<count;i++) {
+        movingAlphabets.push(new MovingAlphabet());
+      }
+
+      setInterval(() => {
+        for(let i in movingAlphabets) {
+          movingAlphabets[i].move();
+        }
+      }, 1000/60);      
+    }
+  </script>
+</head>
+<body>
+
+</body>
+</html>

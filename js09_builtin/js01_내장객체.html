@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      Object는 JavaScript에서 최상위 부모객체이기 떄문에 JavaScript의 모든 객체는 Object를
+      상속받은다. 상속받은 객체들을 Object가 가지고 있는 속성, 메서드를 동일하게 사용할 수
+      있다. 또한 공통적으로 사용할 속성과 메서드가 있다면 Object의 prototype에 속성과 메서드
+      를 추가하면 모든 객체에서 공유해서 사용할 수 있게 된다.
+
+      JavaScript에서는 기본적으로 제공해주는 객체가 있는데 이를 내장객체(builtin object)라
+      한다. 자주 사용하는 내장객체인 String, Array, Date, JSON, Math, Number... 등이 있다.
+      이 내장객체에는 속성과 메서드가 있는데 이 속성과 메서드를 자유롭게 사용하면 보다 편리
+      하게 프로그램을 할 수가 있다.
+    */
+
+    // 1. 기본자료형은 속성과 메서드가 아니가 값만 가지고 있다.
+    let a = 10;
+    
+    // 2. 객체자료형은 속성과 메서드를 가지고 있다.
+    let name = new Object();
+
+    /*
+      Object의 속성과 메서드
+
+      constructor : 객체 생성자 함수
+      hasOwnProperty(name) : 인자로 전달되는 name속성의 존재여부를 리턴
+      isPrototypeOf(객체)  : 해당객체의 prototype인지 여부 리턴
+      propertyIsEnummeralble(name) : 해당객체가 반복객체(iterable) 즉, 반복문사용가능여부
+      isLocaleString() : 객체의 문자셋을 호스트환경에 맞는 문자셌으로 변경
+      toString() : 객체의 정보를 출력(문자열), Object는 특정정보가 없다. 상속받은 객체에서
+                    재정의해서 사용한다.
+      valueOf() : 객체의 값을 출력
+    */
+
+    window.onload = function() {
+      let obj1 = {name:'aaaa'};           // 객체생성 - 리터럴로 생성
+      let obj2 = new Object(); // 객체생성 - 생성자함수로 생성
+
+      for(let key in obj1) {
+        document.write(`${key} = ${obj1[key]} <br>`)
+      }
+      document.write('<hr>')
+      
+      for(let key in obj2) {
+        document.write(`${key} = ${obj2[key]} <br>`)
+      }
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

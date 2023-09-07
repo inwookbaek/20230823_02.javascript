@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 실습1. header3클릭하면 삭제가 되는 onclick이벤트를 작성하기
+    // 실습2. 임의의 img태그를 클릭하면 상세내용이 숨겨지는 이벤트를 작성하기
+    // 실습3. botton클릭시에 클릭횟수를 카운트하기
+    //        button-1을 클릭하면 동시에 2개의 button클릭횟수를 카운트하고
+    //        button-2를 클릭하면 button-2의 클릭횟수만 카운트하기
+
+  </script>
+</head>
+<body>
+  <!-- 실습1 -->
+  <h3 id="header3">여기를 클릭하면 문서객체가 삭제됩니다!</h3>
+
+  <!-- 실습2 -->
+	<div id="item">
+		<img src="images/potato.jpg" alt="">
+		<button class="over" id="open" onclick="showDetail()">상세 설명 보기</button>
+		<div id="desc" class="detail">
+			<h4>민들레</h4>
+			<p>어디서나 매우 흔하게 보이는 잡초로서 바닥에 딱 붙어서 꽃봉오리 하나가 쏙 올라온다. 톱니 모양의 잎새와 눈에 확 띄는 노란 꽃이 인상적이다. 특히 꽃이 지고나면 솜털모양의 깃을 가진 씨앗들이 나오는데 바람을 타고 날아가서 널리 퍼진다.</p>
+			<button id="close" onclick="hideDetail()">상세 설명 닫기</button>
+		</div>
+	</div>	
+
+  <!-- 실습3. -->
+	<button id="button-1">Button-1</button>
+	<button id="button-2">Button-2</button><br>
+	
+	<h1>Button1 - <span id="count-1">0</span></span></h1>
+	<h1>Button2 - <span id="count-2">0</span></span></h1>
+  <hr>  
+</body>
+</html>
