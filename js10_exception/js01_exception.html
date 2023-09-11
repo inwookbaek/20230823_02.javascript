@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let count = 0;
+    let result = null;
+
+    // 예외처리(Exception) 
+    // 프로그래머가 경험에 의해 예외발생가능성이 있을 경우 예외처리를 한다.
+    
+    try {
+      result = result / count;
+      // result가 null일 경우는 NaN, 숫자일 경우는 Infinity가 리턴
+      document.write(`나누기 결과값 = ${result}`)
+    } catch(e) {
+      alert(e);
+      document.write('나누기 연산은 0으로 나눌 수 없습니다!')    
+    }
+
+    console.log('아주아주 중요한 울뜨라짱 작업입니다!!', result)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

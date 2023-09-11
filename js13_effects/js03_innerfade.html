@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+	<style>
+		* { margin: 0px; padding: 0px;}
+		ul { list-style: none; } 
+		img { width: 500px; height:350px; }
+	</style>  
+  <script src="js/jquery3.7.1.js"></script>
+  <script src="js/jquery.innerfade.js"></script>
+  <script>
+    // innerfade plug-in
+    // https://gist.github.com/coolniikou/665255
+    $(() => {
+      $('#inner-fade').innerfade({
+        animationtype: 'slide', // slide, fade (Default: 'fade'), 
+ 	      speed: 500, 
+ 	      timeout: 1000, // 애니메이션 적용시간 (Default: '2000'), 
+ 	      type: 'random',  // Type of slideshow: 'sequence', 'random' or 'random_start' (Default: 'sequence'), 
+  		  containerheight: '100px' 
+      })
+    })
+  </script>
+</head>
+<body>
+	<ul id="inner-fade">
+		<li><img src="./images/Chrysanthemum.jpg" alt="" /></li>
+		<li><img src="./images/Desert.jpg" alt="" /></li>
+		<li><img src="./images/Hydrangeas.jpg" alt="" /></li>
+		<li><img src="./images/Jellyfish.jpg" alt="" /></li>
+		<li><img src="./images/Koala.jpg" alt="" /></li>
+		<li><img src="./images/Lighthouse.jpg" alt="" /></li>
+		<li><img src="./images/Penguins.jpg" alt="" /></li>
+	</ul>
+</body>
+</html>

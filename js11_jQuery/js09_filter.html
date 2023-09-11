@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    $(() => {
+      // 실습. h1을 선택해서 홀수인 요소의 배경색을 green 글자색 white
+      // chain메서드를 이용해서 작성해보기
+      // filter(위치선택자).css()
+      // filter(사용자함수).css()
+
+      $('h1').filter(':odd').css({ background: 'green', color: 'white'});
+      $('h1').filter(':even').css({ background: 'yellow' }).css({color: 'black'});
+      
+      $('h1').filter(idx => {
+        return idx%3 === 0
+      }).css({ background: 'magenta' }).css({color: 'black'});
+      
+      $('h1').filter(idx => idx%3 === 0)
+             .css({ background: 'mediumseagreen' })
+             .css({color: 'blue'});
+    }) 
+
+  </script>
+</head>
+<body>
+  <h1>header-1</h1>
+  <h1>header-2</h1>
+  <h1>header-3</h1>
+  <h1>header-4</h1>
+  <h1>header-5</h1>
+  <h1>header-6</h1>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    // html(), text(), remove(), empty()
+    $(() => {
+      // 1. html() : 문서객체의 내용 - 맨위
+      let h1 = $('h1').html();
+      console.log(h1, typeof h1);
+      
+      // 2. text() : 선택된 문서객체의 내부 문자열 전부
+      let h1_text = $('h1').text();
+      console.log(h1_text, typeof h1_text);
+
+      // 3. html() : 문서객체추가하기
+      $('div.html').html('<h4>$().html()메서드</h4>')
+      
+      // 4. text() : 문서객체 내부에 텍스트 추가하기
+      $('div.text').text('<h4>$().text()메서드</h4>')
+    })
+  </script>
+</head>
+<body>
+  <h1>header-1</h1>
+  <h1>header-2</h1>
+  <h1>header-3</h1>
+
+  <div class="html"></div>
+  <div class="html"></div>
+  <div class="html"></div>
+
+  <div class="text"></div>
+  <div class="text"></div>
+  <div class="text"></div>
+</body>
+</html>

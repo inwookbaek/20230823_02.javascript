@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    // end() : 이전상태로 되돌리는 함수
+    // 메서드체인과 end()메서드를 이용해서 전단계로 돌아가서 다른 작업을 
+    // 수행할 수 있다.
+    $(() => {
+      // 실습. 
+      // 1. h3 전체 배경색을 orange
+      // 2. 짝수 글자색을 흰색
+      // 3. 홀수 글자색을 빨간색
+
+      // 1. end() 미적용
+      // $('h3').css({ background: 'orange'})
+      // $('h3').filter(':even').css('color', 'black');
+      // $('h3').filter(':odd').css('color', 'blue');
+
+      // 2. end()적용
+      $('h3').css({ background: 'gold'})
+             .filter(':even')
+             .css('color', 'blue')
+             .end()
+             .filter(':odd')
+             .css('color', 'red');
+
+      // first(), last(), eq()
+    })
+  </script>
+</head>
+<body>
+  <h3>header-1</h3>
+  <h3>header-2</h3>
+  <h3>header-3</h3>
+  <h3>header-4</h3>
+</body>
+</html>

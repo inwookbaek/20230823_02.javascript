@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    let date1 = new Date(); // 생성자함수
+    let date2 = new Date('Dec 9 2023'); // 생성자함수(문자열)을 이용
+    let date3 = new Date('2023.10.02'); // 생성자함수(문자열)을 이용
+    let date4 = new Date('2023-10-02'); // 생성자함수(문자열)을 이용
+    let date5 = new Date(2023,10,2);    // 생성자함수(숫자)을 이용
+
+    document.write(date1, '<br>');
+    document.write(date2, '<br>');
+    document.write(date3, '<br>');
+    document.write(date4, '<br>');
+    document.write(date5, '<hr>');
+
+    // getXXX() setXXX() - getter/setter 메서드를 제공
+    // 날짜연산
+    let now = new Date();
+    let bef = new Date('2000.1.1');
+
+    // getTime : 1970.1.1 자정기준으로 ms를 리턴
+    document.write(now.getTime(), ' ms <br>');
+    
+    let interval = now.getTime() - bef.getTime();
+    document.write(interval, ' ms <br>');
+
+    // ms로 일자로 변환
+    document.write(Math.floor(interval / (1000 * 60 * 60 * 24)), '일 <br>')
+
+    // Date객체에 날짜간격을 구하는 메서드를 추가
+    Date.prototype.getInterval = function(beforeDate) {
+      let interval;
+
+      // 양수처리
+      if(this > beforeDate) {
+        interval = this.getTime() - beforeDate.getTime();
+      } else {
+        interval = beforeDate.getTime() - this.getTime();
+      }
+      return Math.floor(interval / (1000 * 60 * 60 * 24));
+    }
+
+    document.write(now.getInterval(bef), '일 <br>');
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

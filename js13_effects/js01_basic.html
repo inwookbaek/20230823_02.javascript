@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/jquery3.7.1.js"></script>
+  <script>
+    /*
+      jQuery Effect
+
+      A. effect method
+
+      1. show() : 문서객체 보이기
+      2. hide() : 문서객체 숨기기
+      3. toggle() : 문서객체 보이기/숨기기 즉, show, hide를 번갈아 수행
+      4. slideDown()   : 문서객체 슬라이드 보이기 효과
+      5. slideUp()     : 문서객체 슬라이드 숨기기 효과
+      6. slideToggle() : slideDown/slideUp 번갈아 수행
+      7. fadeIn()  : 문서객체 서서히 보이기
+      8. fadeOut() : 문서객체 서서히 감추기
+      9. fadeToggle() : fadeIn/fadeOut 번갈아 수행
+
+      B. effect 4가지 형태
+
+      1. $(선택자).method()
+      2. $(선택자).method(speed): slow, normal, fase, 숫자(ms)
+      3. $(선택자).method(speed, callback): 효과가 수행동안에 실행할 함수
+      4. $(선택자).method(speed, easing, callbaek) : easing 애니메이션효과 적용
+    */
+   $(() => {
+    $('button').click(function() {
+      $('.page').fadeToggle(1000, function() {
+        alert('Toggle Effect!!!');
+      });
+    })
+   })
+  </script>
+</head>
+<body>
+  <button>jQuery Effect - Toggle</button>  
+  <div class="page">
+    <h1>클린스만은 무슨...'123년 역사상 첫 경질' </h1>
+    <p>노이엔도르프 DFB 회장은 "위원회는 국가대표팀의 최근의 실망스러운 결과와 새로운 자극이 필요하다는 것에 동의했다. 우리는 독일에서 열릴 유로 2024를 위해 새로운 분위기와 자신감이 필요하다. 개인적으로, 내가 지금까지 내린 결정 중 가장 어려운 결정이었다. 왜냐하면 나는 플릭 감독을 존경하기 때문이다. 그러나 스포츠의 성공은 DFB의 최우선 과제다. 그러므로 결정은 불가피했다"며 플릭 감독을 경질한 이유에 대해서 설명했다.</p>
+  </div>
+</body>
+</html>

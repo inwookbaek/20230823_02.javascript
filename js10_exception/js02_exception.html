@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /*
+      예외처리방법
+
+      try {
+        1. 실행할 코드를 작성한다.
+        2. 정상적이라면 문제없이 실행되지만 경우에 따라서 예외가 발생할 수 있다.
+        3. 예외는 강제적으로 throw명령으로 발생시킬 수 있다.
+        4. 메서들 호출할 경우 예외를 발생시키는 메서드라면 그 메서드에서 호출
+      } catch(예외객체) {
+        1. 예외가 발생되면 예외객체를 전달 받을 수 있다.
+        2. 예외객체를 전달 받지 않을 경우에는 매개변수 없이 catch() {} 사용가능
+        3. catch블럭은 예외별로 처리가능, 즉 catch구문이 복수로 올 수 있다.
+      } finally {
+        finally블럭은 예외가 발생하던 발생하지 않던가에 반드시 처리되는 블럭
+      }
+    */
+
+    function getMonthName(mon) {
+      mon = mon - 1; // 10전달받으면 배열 index 9
+      let months = ['1월','2월','3월','4월','5월','6월','7월','8월',
+        '9월','10월','11월','12월'];
+      if(months[mon]) {
+        return months[mon]
+      } else {
+        throw `${mon+1}월의 값은 1~12월까지 입니다!<br>`; // throw는 강제로 예외발생
+      }
+    }
+
+    let m = 9999;
+    try {
+      monthName = getMonthName(m); // 예외발생가능한 함수
+      document.write(`요청한 달의 이름은 ${monthName} 입니다.<br>`)
+    } catch(e) {
+      monthName = '미정';
+      console.log(e.message); // 예외처리
+    } finally {
+      document.write('프로그램이 정상적으로 종료되었습니다!!')
+    }
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

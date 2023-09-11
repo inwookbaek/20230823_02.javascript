@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    // preventDefault()는 태그가 지니고 있는 기본 event를 제거
+    $(() => {
+      $('a').click(function(e) {
+        e.preventDefault();
+        $(this).css('background-color', 'green');
+        e.stopPropagation(); // capturing, bubbling을 제거
+      })
+    })
+  </script>
+</head>
+<body>
+  <div style="border: 2px solid black;">
+    <h1 style="border: 10px solid red;">
+      <a href="http://www.google.com" style="border: 2px solid blue;">Google</a>
+    </h1>
+  </div>
+</body>
+</html>

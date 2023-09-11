@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/jquery3.7.1.js"></script>
+  <style>
+    #box {
+      background-color: mediumspringgreen;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+    }
+  </style>
+  <script>
+    /*
+      jQuery Animation
+
+      A. 메서드형태
+
+      1. $().animation(object)
+      2. $().animation(object, speed)
+      3. $().animation(object, speed, easing)
+      4. $().animation(object, speed, easing, callback함수)
+      
+      B. animation의 형태
+
+      opacity, height, top, width, left, margin right, padding bottom;
+  
+      C. 정지 메서드
+
+      1. $().stop()
+      2. $().stop(clearQueue)
+      3. $().stop(clearQueue, goToEnd)
+    */
+   $(() => {
+    $('button').click(function() {
+      $('div').animate({
+        left: "+=250px",
+        opacity: "0.5",
+        height: "+=150px",
+        width: "+=150px",
+        left: "toggle",
+        height: "toggle",
+        width: "toggle"
+      });
+    });
+
+    // 누적효과
+    $("#box").click(function() {
+      $(this).animate({height: '300px', opacity: "0.5"}, "fast")
+      $(this).animate({width: '300px', opacity: "0.5"}, "slow")
+      $(this).animate({height: '100px', opacity: "0.5"}, "slow")
+      $(this).animate({width: '100px', opacity: "0.5"}, "fast")
+    })
+   })
+  </script>
+</head>
+<body>
+  <button>Animation Effect</button>
+  <div id="box"></div>
+</body>
+</html>

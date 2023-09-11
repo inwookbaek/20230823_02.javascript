@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <style>
+    .reverse {
+      background-color: black;
+      color: white;
+    }
+  </style>
+  <script>
+    $(() => {
+      // on() : 이벤트, 발생된 이벤크를 dom객체 연결
+      // 1. on(이벤트, function(e) {})
+      $('h3').on('click', function(e) {
+        $(this).html(function(index, html) {
+          return html + '+';
+        })
+      })
+
+      // 실습1. reverse클래스를 add or remove하기
+      // mouseenter(addClass), mouseleave(remveClass)
+      // $('h3').on('mouseenter', function(e) {
+      //   $(this).addClass('reverse');
+      // })
+      // $('h3').on('mouseleave', function(e) {
+      //   $(this).removeClass('reverse');
+      // })
+
+      $('h3').hover(
+        function(e) { $(this).addClass('reverse'); },
+        function(e) { $(this).removeClass('reverse'); }
+      )
+
+    })
+  </script>
+</head>
+<body>
+  <h3>header-1</h3>
+  <h3>header-2</h3>
+  <h3>header-3</h3>
+</body>
+</html>

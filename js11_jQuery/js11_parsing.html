@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    // jQuery 파싱
+    // 1. jQuery.parseJSON() - JSON형태의 문자열을 JavaScript객체로 반환
+    // 2. jQuery.parseXML() - XML형태의 문자열을 XML Document Type으로 반환
+    // 3. jQuery.parseHTML() - HTML형태의 문자열을 HTML 문서객체로 반환
+    // jQuery API
+    // http://api.jquery.com/jQuery.parseJSON
+    // http://api.jquery.com/jQuery.parseXML
+    // http://api.jquery.com/jQuery.parseHTML
+
+    let xml = '';
+    xml += '<members>'
+    xml += '  <member>'
+    xml += '    <name>홍길동</name>'
+    xml += '    <age>100</age>'
+    xml += '  </member>'
+    xml += '  <member>'
+    xml += '    <name>손흥민</name>'
+    xml += '    <age>31</age>'
+    xml += '  </member>'
+    xml += '  <member>'
+    xml += '    <name>이강인</name>'
+    xml += '    <age>23</age>'
+    xml += '  </member>'
+    xml += '</members>';
+
+    $(() => {
+      // parseXML() : stirng을 XML로 변환
+      let xmlDoc = $.parseXML(xml);
+      // alert(xmlDoc, typeof xmlDoc);
+      // xml docment객체는 find(), each()
+      $(xmlDoc)
+        .find('member')
+        .each(function() {
+          let output = '';
+          output += '<div>';
+          output += '<h1>' + $(this).find('name').text() + '</h1>';
+          output += '<h3>' + $(this).find('age').text() + '</h3>';
+          output += '</div>';
+          document.body.innerHTML += output;
+        });
+        
+      let obj = $.parseJSON('{ "name": "홍길동"}');
+      alert(obj.name);
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

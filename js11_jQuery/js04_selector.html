@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    $(() => {
+      // 속성 선택자
+      // 1. input태그의 type속성이 text의 값(val)을 'Hello jQuery!!' 로 입력
+      // css(), val()
+      $('input[type=text]').val('Hello jQuery!!');
+      
+      // 2. select태그의 선택된 옵션의 값을 3초마다 alert으로 출력하기
+      setInterval(() => {
+        alert($('select > option:selected').val());
+      }, 3000);
+
+    })
+  </script>  
+</head>
+<body>
+  <input type="text"><br>
+  <input type="checkbox"><br>
+
+  <select name="" id="">
+    <option value="Apple">Apple</option>
+    <option value="Dog">Dog</option>
+    <option value="Cat">Cat</option>
+    <option value="Horse">Horse</option>
+  </select>
+</body>
+</html>

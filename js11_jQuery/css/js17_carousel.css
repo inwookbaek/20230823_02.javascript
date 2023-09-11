@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* 
+    content-box : 콘텐트영역을 기준으로 크기를 정한다.
+    border-box : 테두리를 기준으로 크기를 정한다.
+    initial : 기본값으로 크기를 정한다.
+    inherit : 부모요소의 속성값을 기준으로 크기를 정한다.
+  */
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#container {
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow {
+  z-index: 100;
+  font-size: 2em;
+  padding: 10px;
+  background: #ddd;
+  color: #222;
+  opacity: 0.2;
+}
+
+.arrow:hover {
+  opacity: 1;
+}

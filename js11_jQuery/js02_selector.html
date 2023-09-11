@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    $(() => {
+
+      // 1. tag, id, class 선택자
+      $('h1').css('color', 'red'); // getElementTagName('h1').css()와 동일
+      $('p').css('color', 'green');
+      $('#target').css('color', 'orange');
+      $('h1#target').css('color', 'magenta');
+
+      // jQuery선택자를 이용
+      $('.item').css('color', 'orange')
+      $('h1.item').css('color', 'mediumseagreen')
+      $('h1.item.selected').css('color', 'gray')
+    })
+  </script>
+</head>
+<body>
+  <h1>jQuery - CSS 선택자</h1>
+  <p>Specify additional classes to add to the widget's elements. Any of classes specified in the Theming section can be used as keys to override their value. To learn more about this option, check out the learn article about the classes option.</p>
+  <p id="target">Specify additional classes to add to the widget's elements. Any of classes specified in the Theming section can be used as keys to override their value. To learn more about this option, check out the learn article about the classes option.</p>
+  <h1 id="target">jQuery 선택자 실습</h1>
+
+  <h1 class="item">header - 1</h1>
+  <h1 class="item selected">header - 2</h1>
+  <h1 class="item">header - 3</h1>
+</body>
+</html>

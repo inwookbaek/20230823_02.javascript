@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    // 위치선택자 - :odd, :even, :first, :last
+    // 함수선택자 - :eq(n), :gt(n) nth-child(n)
+    $(() => {
+      $('tr:odd').css('background', 'orange');
+      $('tr:even').css('background', 'gold');
+      $('tr:eq(0)').css('background', 'black').css('color', 'white');
+      $('tr:nth-child(3n)').css('background', 'green').css('color', 'white');
+      $('tr:nth-child(3n+1)').css('background', 'purple').css('color', 'white');
+    })
+  </script>
+</head>
+<body>
+  <table border="1">
+    <colgroup>
+      <col style="width: 100px;">
+      <col style="width: 50px;">
+      <col style="width: 50px;">
+      <col style="width: 200px;">
+    </colgroup>
+    <tr>
+      <th>이름</th>
+      <th>성별</th>
+      <th>나이</th>
+      <th>주소</th>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+    <tr>
+      <td>홍길동</td>
+      <td>남</td>
+      <td>100</td>
+      <td>조선 한양</td>
+    </tr>
+  </table>
+</body>
+</html>

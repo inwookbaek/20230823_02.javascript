@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'OpenSans';
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  width: 350px;
+  height: 500px;
+  display: flex;
+  background-color: #CFE8FF;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator__display--1 {
+  display: none;
+  width: 320px;
+  height: 100px;
+  background-color: #D9D9D9;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  font-weight: 200;
+  font-size: 28px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.calculator__display--2 {
+  width: 320px;
+  height: 100px;
+  background-color: #D9D9D9;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  font-weight: 200;
+  font-size: 28px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.calculator__buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.button__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear,
+.plusminus,
+.percent {
+  width: 80px;
+  height: 74px;
+  border: 0.01rem solid rgba(217, 217, 217, 0.5);
+  background-color: #F8EFEF;
+  font-size: 32px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.clear:hover,
+.plusminus:hover,
+.percent:hover {
+  background-color: #FFDBDB;
+}
+
+.clear:active,
+.plusminus:active,
+.percent:active {
+  box-shadow: inset rgba(174, 174, 174, 0.24) 0px 3px 8px;
+}
+
+.number,
+.decimal {
+  width: 80px;
+  height: 74px;
+  border: 0.01rem solid rgba(217, 217, 217, 0.5);
+  background-color: #F5B8B8;
+  font-size: 32px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.number:active,
+.decimal:active {
+  box-shadow: inset rgba(174, 174, 174, 0.24) 0px 3px 8px;
+}
+
+.number:hover,
+.decimal:hover {
+  background-color: #FFA8A8;
+}
+
+.double {
+  width: 160px;
+}
+
+.operator,
+.calculate {
+  width: 80px;
+  height: 74px;
+  border: 0.01rem solid rgba(217, 217, 217, 0.5);
+  background-color: #FFC480;
+  font-size: 32px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.operator:hover,
+.calculate:hover {
+  background-color: #FFB661;
+}
+
+.operator:active,
+.calculate:active {
+  box-shadow: inset rgba(174, 174, 174, 0.24) 0px 3px 8px;
+}

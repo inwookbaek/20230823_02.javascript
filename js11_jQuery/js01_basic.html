@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    window.onload = () => {
+      document.write("window.onload() <br>")
+    }
+    
+    // window.onload와 동일한 작업 - jQuery(1)
+    $(document).ready(() => {
+      document.write("$(document).ready() <br>")
+    })
+
+    // window.onload와 동일한 작업 - jQuery(2)
+    // $(함수)
+    $(() => {
+      document.write("$() <br>")
+    })
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
+

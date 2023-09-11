@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <style>
+    h1 { text-align: center; }
+    #button {
+      padding: 5px;
+      margin: 0;
+      text-align: center;
+    }
+  </style>
+  <script>
+    $(() => {
+      $('#button').hover(
+        function() { $(this).addClass('ui-state-hover'); },  
+        function() { $(this).removeClass('ui-state-hover'); }  
+      );
+      
+      $('#button').click(function() {
+        $(this).toggleClass('ui-state-active')
+      });
+
+      $(".tooltip").tooltip();
+
+    })
+
+
+  </script>
+
+</script>    
+
+</head>
+<body>
+  <div id="button" class="box ui-state-default ui-coner-all tooltip" 
+    title="div 툴팁입니다!">
+    <p>Our "Try it Yourself" editor makes it easy to learn jQuery. You can edit code and view the result in your browser:</p>
+  </div>
+
+  <button id="button" class="box ui-state-default ui-coner-all tooltip"
+    title="버튼 툴팁입니다!">Button</button>
+</body>
+</html>
