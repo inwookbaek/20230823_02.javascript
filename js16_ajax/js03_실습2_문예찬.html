@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+  <!-- 실습2. 각 개인 자료들(JSON)을 dothome 웹서버에 업로드 후 ajax(jQuery)로 출력하기 -->
+  <button type="button" onclick="getJSONdata()">실습2 데이터 가져오기(jQuery)</button>
+  <table border="1" style="border-collapse: collapse; margin: 15px 0;">
+    <thead>
+      <tr>
+        <th>userId</th>
+        <th>id</th>
+        <th>title</th>
+      </tr>
+    </thead>
+    <tbody id="demo2"></tbody>
+  </table>
+
+  <script>
+    function getJSONdata() {
+      $.ajax({
+        type: 'get',
+        url: 'http://yechan31.dothome.co.kr/js03_yechan.json',
+        dataType: 'json',
+        success: (albums) => {
+          $.each(albums, (index, album) => {
+            $('#demo2').append(
+              '<tr>'
+              +`<td>${album.userId}</td>`
+              +`<td>${album.id}</td>`
+              +`<td>${album.title}</td>`
+              +`</tr>`
+            )
+          })
+        },
+        error: () => {alert('요청 실패')}
+      })
+    }
+  </script>
+</body>
+</html>

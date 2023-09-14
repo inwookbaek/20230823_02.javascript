@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(() => {
+      $('#myinput').on('keyup', function() {
+        let value = $(this).val().toLowerCase();
+        $('#mylist li').filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        })
+      })
+
+      $('#myinput1').on('keyup', function() {
+        let value = $(this).val().toLowerCase();
+        $('#mytable tbody tr').filter(function() {
+          // $('.name').toggle($('.name').text().toLowerCase().indexOf(value) > -1);
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        })
+      })
+    })
+  </script> 
+</head>
+<body>
+	<div class="container">
+		<h3>Filter List</h3>
+		<input type="text" id="myinput" class="form-control" placeholder="검색어를 입력하세요..."><br>
+		<ul class="list-group" id="mylist">
+			<li class="list-group-item">First Item</li>
+			<li class="list-group-item">Second Item</li>
+			<li class="list-group-item">Third Item</li>
+			<li class="list-group-item">Fourth Item</li>
+			<li class="list-group-item">Five Item</li>
+		</ul>
+	</div>
+	<hr />
+	
+	<div class="container">
+		<h3>Filter Table</h3>
+		<input type="text" id="myinput1" class="form-control" placeholder="검색어를 입력하세요..."><br>
+		<table class="table table-bordered table-striped" id="mytable">
+			<thead>
+				<tr>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>email</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="name">gildong1</td>
+					<td>hong</td>
+					<td>hong1@gmail.com</td>
+					
+				</tr>
+				<tr>
+					<td class="name">sohyang</td>
+					<td>hong</td>
+					<td>hong1@gmail.com</td>
+				</tr>
+				<tr>
+					<td class="name">sonny</td>
+					<td>손흥민</td>
+					<td>sonny@gmail.com</td>
+				</tr>
+				<tr>
+					<td class="name">lee</td>
+					<td>이강인</td>
+					<td>lee@gmail.com</td>
+				</tr>
+				<tr>
+					<td class="name">ryu</td>
+					<td>류현진</td>
+					<td>ryu@gmail.com</td>
+				</tr>
+			</tbody>
+		</table>  
+</body>
+</html>

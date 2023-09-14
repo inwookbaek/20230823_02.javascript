@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #googlemap {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="googlemap"></div>
+  <script>
+    function myMap() {
+      const myCenter = new google.maps.LatLng(37.43, 127.129);
+      const myProp = {
+        center: myCenter,
+        zoom: 18,
+        scrollwheel: true,
+        draggable: true,
+        myTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      const map = new google.maps.Map(document.getElementById('googlemap'), myProp)
+      const marker = new google.maps.Marker({ position: myCenter})
+      marker.setMap(map);
+    }
+  </script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOURKEY&callback=myMap"></script>	
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!--  
+    1. Ajax(Asynchronous Javascript And Xml)
+     
+      ajax란 자바스크립트를 이용해서 서버와 웹브라워저가 비동기방식으로 데이터를 교환할
+      수 있는 통신방법이다. 웹브라우저는 XMLHttpRequest객체를 이용해서 웹페이지 전체를
+      교환하지 않고도 페이지의 일부부만 업데이트할 수 있다.
+
+      1) 장점
+
+        a. 웹페이지로딩속도가 빨라진다.
+        b. 서버에 요청된 작업이 완료될 때까지 기다리지 않고 다른 작업을 할 수 있다.
+        c. 서버에 데이터만 전송하기 때문에 코딩량이 감소한다.
+
+      2) 단점
+
+        a. 작업수행의 이력관리가 되지 않는다.
+        b. 페이지 이동이 없기 때문에 보안에 취약하다.
+        c. 데이터를 수시로 요청하면 서버에 부담을 준다. 
+        d. XMLHttpRequest통신의 경우 사용자에게 아무런 정보를 제공하지 않는다.
+
+      3) 진행순서
+
+        a. XMLHttpRequest 객체를 생성한다.
+        b. callback함수를 작성한다.
+        c. 서버에서 response가 왔을 때 실행시키는 함수 작성(웹페이지를 업데이트)
+        d. 요청을 전송
+
+    2. XMLHttpRequest?
+
+      XMLHttpRequest객체는 서버와 통신하는 되 필요한 객체이다. 이 객체는 웹페이지
+      전체를 새로 고칠 필요없이 API호출을 통해 데이터를 조회할 수 있게 한다. 
+      이를 통해서 웹페이지는 사용자가 작업중단없이 웹페이지의 일부만 업데이트할 수
+      있게 한다.
+  -->  
+  <button type="button" onclick="getJSONData()">JSON데이터 가져오기(XHR)</button>
+  <br><br>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <td rowspan="2">id</td>
+        <td rowspan="2">name</td>
+        <td rowspan="2">e-mail</td>
+        <td colspan="5">address</td>
+      </tr>
+      <tr>
+        <td>street</td>
+        <td>suite</td>
+        <td>city</td>
+        <td>zipcode</td>
+        <td>geo</td>
+      </tr>
+    </thead>
+    <tbody id="demo"></tbody>
+  </table>
+
+  <script>
+    function getJSONData() {
+      const req = new XMLHttpRequest();
+      
+      req.onreadystatechange = e => {
+        
+        // readyState
+        // 1. UNSENT(0) : XMLHttpRequest객체가 생성된 상태
+        // 2. OPEND(1)  : open()메서드가 성공한 상태
+        // 3. HEDERS_RECEIVED(2) : 모든 요청에 대한 응답이 도착한 상태
+        // 4. LOADING(2) : 요청데이터가 처리중인 상태
+        // 5. DONE(4) : 데이터처리가 완료된 상태
+        if(req.readyState === req.DONE) {
+          // status
+          // 1. 200 : SUCCESS
+          // 2. 201 : CREADED
+          // 3. 404 : NOT FOUND
+          if(req.status === 200) {
+            let users = JSON.parse(req.responseText);
+            let output = '';
+
+            for(i in users) {
+              output += `<tr>`;
+              output += `<td>${users[i].id}</td>`;
+              output += `<td>${users[i].name}</td>`;
+              output += `<td>${users[i].email}</td>`;
+              output += `<td>${users[i].address.street}</td>`;
+              output += `<td>${users[i].address.suite}</td>`;
+              output += `<td>${users[i].address.city}</td>`;
+              output += `<td>${users[i].address.zipcode}</td>`;
+              output += `<td>${JSON.stringify(users[i].address.geo)}</td>`;
+              output += `</tr>`;
+            }
+
+            document.querySelector('#demo').innerHTML = output;
+          }
+        }
+      }
+      req.open("GET", 'https://jsonplaceholder.typicode.com/users', true);
+      req.send();
+    }
+  </script>
+</body>
+</html>
